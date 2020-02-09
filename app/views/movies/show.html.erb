@@ -1,12 +1,13 @@
 <%= image_tag(@movie.poster) %>
 <h1><%= @movie.titleyear %></h1>
 <h2>dir. <%= @movie.director %></h2>
-<p>Genre: <%= @movie.genre %></p><br<br>
+<p>Genre: <%= @movie.genre %></p><br><br>
 <p><%= @movie.plot %></p>
 
-<%= link_to 'review this movie', new_movie_review_path(@movie) %>
+<%= link_to 'review this movie', new_movie_review_path(@movie) %><br>
+<%= link_to 'main page', movies_path %><br>
 
-<%= @movie.reviews.each do |review| %>
-  <%= review.date %>
-  <%= review.content %>
+<%= @movie.reviews.each do |r| %>
+  <p><%= link_to r.date, review_path(r) %><br>
+  <%= r.content %></p>
 <% end %>

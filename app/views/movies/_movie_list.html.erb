@@ -1,5 +1,7 @@
 
-<%= form_for @movie do |f| %>
-  <%= f.collection_radio_buttons :imdbid, @movies, :imdbid, :titleyear %>
-  <%= f.submit 'Go to film' %>
+<% if !@movie_list.empty? %>
+  <%= form_for @movie do |f| %>
+    <%= f.collection_radio_buttons :imdbid, @movie_list, :imdbid, :titleyear %><br>
+    <%= f.submit 'Go to film' %>
+  <% end %>
 <% end %>

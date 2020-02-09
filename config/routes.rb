@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   resources :movies do
-    resources :reviews, only: [:index, :show, :new, :create]
+    resources :reviews
   end
 
-  get '/search', to: 'movies#search'
-  post '/results', to: 'movies#results'
-
   resources :reviews
+
+  root 'movies#index'
 end

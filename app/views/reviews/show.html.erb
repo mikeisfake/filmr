@@ -1,0 +1,6 @@
+<h1>Review for <%= @review.movie.title %> </h1>
+
+<%= @review.content %><br>
+<%= @review.date %>
+<%= button_to 'delete review', review_path(@review), method: :delete %>
+<%= button_to 'edit review', edit_review_path(@review), method: :get%>

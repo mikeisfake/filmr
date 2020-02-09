@@ -3,32 +3,30 @@ require 'HTTParty'
 class MoviesController < ApplicationController
 
   def index
-    @movies= Movie.all
+    @movies = Movie.all
+
+    @movie = Movie.new
+    if params[:search]
+      @movie_list = []
+      movie = params[:search]
+      query = search_api(movie)
+      if !query['Search'].nil?
+        @movie_list = query['Search'].compact.map do |m|
+          Movie.new(title: m['Title'], year: m['Year'], poster: m['Poster'], imdbid: m['imdbID'])
+        end
+      else
+        flash[:notice] = "No results bro"
+      end
+    else
+      flash[:notice] = "That didn't work out"
+    end
+    render :index
   end
 
   def show
     @movie = Movie.find_by(id: params[:id])
   end
 
-  def search
-
-  end
-
-  def results
-    @movie = Movie.new
-    if params[:search]
-      @movie_list = []
-      movie = params[:search]
-      query = search_api(movie)
-      @movie_list = query['Search'].compact
-      @movies = @movie_list.map do |m|
-        Movie.new(title: m['Title'], year: m['Year'], poster: m['Poster'], imdbid: m['imdbID'])
-      end
-    else
-      flash[:notice] = "That didn't work out"
-    end
-    render :search
-  end
 
   def new
     @movie = Movie.new
@@ -45,7 +43,7 @@ class MoviesController < ApplicationController
       movie.poster = result['Poster']
       movie.plot = result['Plot']
     end
-    redirect_to (@movie)
+    redirect_to @movie
   end
 
   private

@@ -1,6 +1,5 @@
-<h1>Write a review for <%= @movie.titleyear %></h1>
+<h1>Edit review</h1>
 <%= form_for @review do |f| %>
-  <%= f.hidden_field :movie_id %>
   <%= f.hidden_field :date, value: Time.now %>
   <%= f.text_area :content %>
   <%= f.submit %>

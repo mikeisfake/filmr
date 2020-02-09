@@ -1,3 +1,11 @@
+<h1>Search For a movie</h1>
+
+<%= render 'search_form' %>
+
+<% if params[:search] %>
+  <%= render 'movie_list' %>
+<% end %>
+
 <h1>All Movies</h1>
 
 <ul>
