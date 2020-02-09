@@ -1,5 +1,5 @@
-<ul>
-  <% @movie_list.each do |movie| %>
-    <li><%= movie['Title']%>, (<%= movie['Year'] %>)</li>
-  <% end %>
-</ul>
+
+<%= form_for @movie do |f| %>
+  <%= f.collection_radio_buttons :imdbid, @movies, :imdbid, :titleyear %>
+  <%= f.submit 'Go to film' %>
+<% end %>

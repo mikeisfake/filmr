@@ -1,6 +1,7 @@
-<%= form_tag('/create') %>
-  <%= label_tag 'Search:' %>
-  <%= text_field_tag('search') %>
-
-  <%= submit_tag 'Find Movie' %>
+<h1>Write a review for <%= @movie.titleyear %></h1>
+<%= form_for @review do |f| %>
+  <%= f.hidden_field :movie_id %>
+  <%= f.hidden_field :date %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
 <% end %>
