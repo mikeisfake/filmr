@@ -1,6 +1,12 @@
-<h1>Review for <%= @review.movie.title %> </h1>
+<%= image_tag @review.movie.poster %>
+<h1>Review for <%= @review.movie.titleyear %> </h1>
 
 <%= @review.content %><br>
 <%= @review.date %>
-<%= button_to 'delete review', review_path(@review), method: :delete %>
-<%= button_to 'edit review', edit_review_path(@review), method: :get%>
+<p>filed under: </p>
+<% @review.tags.each do |tag| %>
+  <%= tag.name %>
+<% end %>
+<%= button_to 'delete review', review_path(@review), method: :delete, class: "button" %>
+<%= button_to 'edit review', edit_review_path(@review), method: :get, class: "button"%>
+<%= link_to 'home', root_path, class: "button"%>

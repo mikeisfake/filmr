@@ -1,0 +1,53 @@
+/* search results */
+
+.movie-list {
+  margin: 25px 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.movie-list label {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  margin: 4px;
+  font-size: .7em;
+  line-height: 1.5;
+}
+
+.movie-list input[type='submit'] {
+  position: absolute;
+  top: 330px;
+}
+
+.result-cards:active {
+  animation: click .8s ease;
+  -webkit-animation: click .8s ease;
+}
+
+.result-cards img {
+  border-radius: 8px;
+  width: 100px;
+  height: 147px;
+}
+
+.result-cards img:hover {
+  transform: scale(1.1);
+}
+
+/* show page */
+
+.col-left,
+.col-right {
+  width: 350px;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 10px;
+  background: var(--menu)
+}
+.col-left,
+.col-left h1,
+.col-left h2 {
+  text-align: right;
+}

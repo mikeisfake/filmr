@@ -1,15 +1,18 @@
-<h1>Search For a movie</h1>
+<section class="column">
+  <%= render 'search_form' %>
 
-<%= render 'search_form' %>
+  <% if params[:search] %>
+    <%= render 'movie_list' %>
+  <% end %>
+</section>
 
-<% if params[:search] %>
-  <%= render 'movie_list' %>
-<% end %>
 
-<h1>All Movies</h1>
+<section class="column">
+<h2>all movies</h2>
 
 <ul>
   <% @movies.each do |m| %>
     <li><%= link_to m.title, movie_path(m) %></li>
   <% end %>
 </ul>
+</section>

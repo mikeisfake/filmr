@@ -1,13 +1,19 @@
-<%= image_tag(@movie.poster) %>
-<h1><%= @movie.titleyear %></h1>
-<h2>dir. <%= @movie.director %></h2>
-<p>Genre: <%= @movie.genre %></p><br><br>
-<p><%= @movie.plot %></p>
+<section class="row">
+  <section class="column col-left">
+    <%= image_tag(@movie.poster) %>
+    <h1><%= @movie.titleyear %></h1>
+    <h2>dir. <%= @movie.director %></h2>
+    <p>Genre: <%= @movie.genre %></p>
+    <p><%= @movie.plot %></p>
 
-<%= link_to 'review this movie', new_movie_review_path(@movie) %><br>
-<%= link_to 'main page', movies_path %><br>
+    <%= link_to 'review this movie', new_movie_review_path(@movie), class: "button" %>
+    <%= link_to 'main page', movies_path, class: "button" %>
+  </section>
 
-<%= @movie.reviews.each do |r| %>
-  <p><%= link_to r.date, review_path(r) %><br>
-  <%= r.content %></p>
-<% end %>
+  <section class="column col-right">
+    <% @movie.reviews.each do |review| %>
+      <p><%= review.content %><br>
+      <%= link_to review.date, review_path(review)%></p>
+    <% end %>
+  </section>
+</section>

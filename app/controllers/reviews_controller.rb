@@ -1,42 +1,45 @@
 class ReviewsController < ApplicationController
 
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
+
   def new
-    if params[:movie_id]
-      @movie = Movie.find_by(id: params[:movie_id])
-      @review = Review.new(movie_id: params[:movie_id])
-    end
+    @movie = Movie.find_by(id: params[:movie_id])
+    @review = Review.new(movie_id: params[:movie_id])
   end
 
   def create
-    @movie = Movie.find_by(id: params[:review][:movie_id])
-    @review = Review.create(review_params)
-    @movie.reviews << @review
-    redirect_to movie_path(@movie)
+    movie = Movie.find_by(id: params[:review][:movie_id])
+    review = movie.reviews.build(review_params)
+    if review.save
+      redirect_to movie_path(movie)
+    else
+      flash[:notice] = "that didn't work out"
+    end
   end
 
   def show
-    @review = Review.find(params[:id])
   end
 
   def edit
-    @review = Review.find(params[:id])
   end
 
   def update
-    @review = Review.find(params[:id])
     @review.update(review_params)
     redirect_to @review
   end
 
   def destroy
-    @review = Review.find(params[:id])
     @review.destroy
     redirect_to root_path
   end
 
   private
 
+  def set_review
+    @review = Review.find(params[:id])
+  end
+  
   def review_params
-    params.require(:review).permit(:content, :date)
+    params.require(:review).permit(:content, :date, :tag_name)
   end
 end

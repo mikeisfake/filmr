@@ -1,0 +1,36 @@
+.button {
+  padding: 10px;
+  background: var(--button);
+  color: var(--text);
+  margin-right: 8px;
+  border-radius: 5px;
+  border: 0px solid transparent;
+  text-transform: lowercase;
+}
+
+.button:hover {
+  background: var(--accent);
+  color: var(--text)
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+  outline: 0px solid transparent;
+  box-shadow: 0 0 0 1px var(--accent);
+  color: var(--text)
+}
+
+input[type='text'],
+textarea {
+  padding: 10px;
+  margin: 10px 5px;
+  background: var(--menu);
+  border: 0px solid transparent;
+  border-radius: 5px;
+  color: var(--text);
+}
+
+input[type="radio"] {
+  display: none;
+}

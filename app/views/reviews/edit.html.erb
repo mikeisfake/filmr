@@ -1,6 +1,14 @@
 <h1>Edit review</h1>
-<%= form_for @review do |f| %>
+<%= form_with model: @review do |f| %>
   <%= f.hidden_field :date, value: Time.now %>
   <%= f.text_area :content %>
+
+  <%= f.text_field :tag_name, list: "tags_autocomplete" %>
+  <datalist id="tag_autocomplete">
+    <% Tag.all.each do |tag| %>
+      <option value="<%= tag.name %>">
+    <% end %>
+  </datalist>
+
   <%= f.submit %>
 <% end %>
