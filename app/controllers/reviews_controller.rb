@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_movie, only: [:show, :edit]
 
   def new
     @movie = Movie.find_by(id: params[:movie_id])
@@ -38,7 +39,11 @@ class ReviewsController < ApplicationController
   def set_review
     @review = Review.find(params[:id])
   end
-  
+
+  def set_movie
+    @movie = @review.movie
+  end
+
   def review_params
     params.require(:review).permit(:content, :date, :tag_name)
   end

@@ -1,18 +1,17 @@
 <section class="row">
   <section class="column col-left">
-    <%= image_tag(@movie.poster) %>
-    <h1><%= @movie.titleyear %></h1>
-    <h2>dir. <%= @movie.director %></h2>
-    <p>Genre: <%= @movie.genre %></p>
-    <p><%= @movie.plot %></p>
+    <%= render 'movie_data' %>
+    <br>
+    <div class="row">
+      <%= button_to 'review this movie', new_movie_review_path(@movie), method: :get, class: "button" %>
+      <%= render "home_button" %>
+    </div>
 
-    <%= link_to 'review this movie', new_movie_review_path(@movie), class: "button" %>
-    <%= link_to 'main page', movies_path, class: "button" %>
   </section>
 
   <section class="column col-right">
     <% @movie.reviews.each do |review| %>
-      <p><%= review.content %><br>
+      <p><%= review.render_content %><br>
       <%= link_to review.date, review_path(review)%></p>
     <% end %>
   </section>

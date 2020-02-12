@@ -1,5 +1,7 @@
 <%= form_tag root_path, method: :get do %>
-  <%= text_field_tag('search') %>
+  <%= text_field_tag('search', nil, placeholder: 'search for a movie') %>
 
-  <%= submit_tag 'Find Movie', class: "button" %>
+  <%= button_tag type: 'submit', class: "button" do %>
+    <%= fa_icon "search" %>
+  <% end %>
 <% end %>

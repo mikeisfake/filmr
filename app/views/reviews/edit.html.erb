@@ -1,14 +1,25 @@
-<h1>Edit review</h1>
-<%= form_with model: @review do |f| %>
-  <%= f.hidden_field :date, value: Time.now %>
-  <%= f.text_area :content %>
+<section class="row">
+  <div class="column col-left">
+    <%= render 'movies/movie_data' %>
+  </div>
 
-  <%= f.text_field :tag_name, list: "tags_autocomplete" %>
-  <datalist id="tag_autocomplete">
-    <% Tag.all.each do |tag| %>
-      <option value="<%= tag.name %>">
+  <div class="column col-right">
+    <h2>edit your review.</h2>
+    <%= form_with model: @review do |f| %>
+      <%= f.hidden_field :date, value: Time.now %>
+      <%= f.text_area :content %>
+
+      <div class="row">
+        <span>tags:</span><%= f.text_field :tag_name, list: "tags_autocomplete" %>
+        <datalist id="tag_autocomplete">
+          <% Tag.all.each do |tag| %>
+            <option value="<%= tag.name %>">
+          <% end %>
+        </datalist>
+
+        <%= f.submit class: "button" %>
+      </div>
     <% end %>
-  </datalist>
+  </div>
 
-  <%= f.submit %>
-<% end %>
+</section>

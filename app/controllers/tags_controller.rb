@@ -1,5 +1,5 @@
-class ReviewsController < ApplicationController
-  def create
-    @review = Review.find(params[:id])
+class TagsController < ApplicationController
+  def show
+    @tag = Tag.find_by(id: params[:id])
   end
 end

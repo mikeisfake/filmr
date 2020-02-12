@@ -1,12 +1,27 @@
-<%= image_tag @review.movie.poster %>
-<h1>Review for <%= @review.movie.titleyear %> </h1>
+<section class="row">
+  <div class="column col-left">
+    <%= render 'movies/movie_data' %>
+  </div>
 
-<%= @review.content %><br>
-<%= @review.date %>
-<p>filed under: </p>
-<% @review.tags.each do |tag| %>
-  <%= tag.name %>
-<% end %>
-<%= button_to 'delete review', review_path(@review), method: :delete, class: "button" %>
-<%= button_to 'edit review', edit_review_path(@review), method: :get, class: "button"%>
-<%= link_to 'home', root_path, class: "button"%>
+  <div class="column col-right">
+    <%= @review.render_content %><br><br>
+    <%= @review.date %><br>
+    <div class="row">
+      <p>tags: </p>
+      <% @review.tags.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag), class: "tag" %>
+      <% end %>
+    </div>
+  <br><br>
+    <div class="row">
+      <%= button_to review_path(@review), method: :delete, class: "button delete_button" do %>
+        <%= fa_icon "trash" %>
+      <% end %>
+      <%= button_to edit_review_path(@review), method: :get, class: "button" do %>
+        <%= fa_icon "edit" %>
+      <%end%>
+      <%= render 'home_button' %>
+    </div>
+  </div>
+
+</section>

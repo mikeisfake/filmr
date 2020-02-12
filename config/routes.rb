@@ -5,5 +5,7 @@ Rails.application.routes.draw do
 
   resources :reviews
 
+  resources :tags, only: [:show]
+
   root 'movies#index'
 end

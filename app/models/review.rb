@@ -8,6 +8,10 @@ class Review < ApplicationRecord
 
   accepts_nested_attributes_for :tags
 
+  def render_content
+    self.content.gsub("\r\n\r", '<br>').gsub("\r\n", '<br>').gsub("\n", '<br>').html_safe
+  end
+
   def tag_name=(names)
     names.split(',').map do |n|
       self.tags << Tag.find_or_create_by(name: n)

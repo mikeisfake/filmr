@@ -1,9 +1,10 @@
 <% if !@movie_list.empty? %>
-  <%= form_with model: @movie, class: "movie-list" do |f| %>
-    <%= f.collection_radio_buttons(:imdbid, @movie_list, :imdbid, :poster) do |b| %>
-      <%= b.label(class: "result-cards") { b.radio_button + image_tag(b.object.poster) + b.object.titleyear } %>
+  <%= form_with model: @movie, class: "movie-list", id: "movie-list" do |f| %>
+  <h3>search results.</h3>
+  <div class="row">
+    <%= f.collection_radio_buttons(:imdbid, @movie_list, :imdbid, :render_poster) do |b| %>
+      <%= b.radio_button + b.label(class: "result-cards") %>
     <% end %>
-
-    <%= f.submit 'Go to film', class: "button" %>
+  </div>
   <% end %>
 <% end %>

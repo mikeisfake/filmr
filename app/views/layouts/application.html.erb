@@ -5,21 +5,21 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container-all">
+      <%= yield %>
+    </div>
   </body>
   <script>
-    $('input[type=label]').on('click', function () {
-      $(this).closest("form").submit();
-    });
-
-    $(".alert, .success").addClass("slideInDown").delay(3000).queue(function () {
-      $(this).addClass("slideOutUp").dequeue();
+    $('input[type=radio]').click(function() {
+      $("#movie-list").submit();
     });
   </script>
 </html>

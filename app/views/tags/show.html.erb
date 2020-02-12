@@ -1,0 +1,6 @@
+<ul>
+  <% @tag.reviews.each do |review| %>
+    <%= review.movie.titleyear %>
+    <%= review.content %>
+  <% end %>
+</ul>
