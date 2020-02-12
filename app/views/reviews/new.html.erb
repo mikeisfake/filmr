@@ -7,6 +7,7 @@
   <div class="column col-right">
     <%= form_with model: @review do |f| %>
       <%= f.hidden_field :movie_id %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :date, value: Time.now %>
       <%= f.text_area :content, placeholder: "write a review" %><br>
 

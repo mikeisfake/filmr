@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
 
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_movie, only: [:show, :edit]
+  before_action :authenticate_user!
 
   def new
     @movie = Movie.find_by(id: params[:movie_id])
@@ -10,7 +11,7 @@ class ReviewsController < ApplicationController
 
   def create
     movie = Movie.find_by(id: params[:review][:movie_id])
-    review = movie.reviews.build(review_params)
+    review = Review.new(review_params)
     if review.save
       redirect_to movie_path(movie)
     else
@@ -45,6 +46,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:content, :date, :tag_name)
+    params.require(:review).permit(:content, :date, :tag_name, :movie_id, :user_id)
   end
 end

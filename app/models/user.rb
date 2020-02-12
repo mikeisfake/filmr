@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :authentication_keys => [:username]
 
   validates :username, uniqueness: true
+
+  has_many :reviews
 end

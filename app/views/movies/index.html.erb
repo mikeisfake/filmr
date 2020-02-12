@@ -1,3 +1,4 @@
+<h1>welcome <%= current_user.username %></h1>
 <section class="column">
   <%= render 'search_form' %>
 
@@ -8,11 +9,10 @@
 
 
 <section class="column">
-<h2>all movies</h2>
-
+<h2>recent reviews.</h2>
 <ul>
-  <% @movies.each do |m| %>
-    <li><%= link_to m.title, movie_path(m) %></li>
+  <% current_user.reviews.each do |r| %>
+    <p><%= link_to r.movie.titleyear, review_path(r) %></p>
   <% end %>
 </ul>
 </section>
