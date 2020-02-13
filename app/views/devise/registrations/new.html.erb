@@ -11,9 +11,8 @@
 
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "confirm password"%>
 
-  <div class="actions">
+  <div class="row">
     <%= f.submit "Sign up", class: "button" %>
+    <%= render "devise/shared/links" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

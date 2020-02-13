@@ -1,4 +1,5 @@
-<h1>welcome <%= current_user.username %></h1>
+<h1>welcome <%= current_user.username if user_signed_in?%>.</h1>
+
 <section class="column">
   <%= render 'search_form' %>
 
@@ -7,12 +8,13 @@
   <% end %>
 </section>
 
-
-<section class="column">
-<h2>recent reviews.</h2>
-<ul>
-  <% current_user.reviews.each do |r| %>
-    <p><%= link_to r.movie.titleyear, review_path(r) %></p>
-  <% end %>
-</ul>
-</section>
+<% if user_signed_in? %>
+  <section class="column">
+  <h2>recently reviewed movies.</h2>
+  <ul class="row">
+    <% current_user.movies.each do |m| %>
+      <p class="result-cards"><%= link_to image_tag(m.poster), movie_path(m) %></p>
+    <% end %>
+  </ul>
+  </section>
+<% end %>

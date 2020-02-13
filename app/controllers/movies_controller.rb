@@ -20,8 +20,6 @@ class MoviesController < ApplicationController
       else
         flash[:notice] = "No results bro"
       end
-    else
-      flash[:notice] = "That didn't work out"
     end
     render :index
   end

@@ -5,24 +5,28 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
   <body>
+    <%= render 'flash' %>
+    <%= render 'logout_button' %>
+
     <div class="container-all">
-      <% if user_signed_in? %>
-        <%= button_to "log out", destroy_user_session_path, method: :delete %>
-      <% end %>
+
       <%= yield %>
+
     </div>
   </body>
   <script>
     $('input[type=radio]').click(function() {
       $("#movie-list").submit();
+    });
+
+    $(".alert, .notice").addClass("slideInDown").delay(3000).queue(function () {
+      $(this).addClass("slideOutUp").dequeue();
     });
   </script>
 </html>

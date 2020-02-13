@@ -1,0 +1,5 @@
+<% if flash[:notice] %>
+  <p class="notice animated slideInDown"><%= flash[:notice] %></p>
+<% elsif flash[:alert] %>
+  <p class="alert animated slideInDown"><%= flash[:alert] %></p>
+<% end %>

@@ -66,3 +66,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.7"
+
+gem "animate-rails", "~> 1.0"
+
+gem "dotenv-rails", "~> 2.7"
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+
+gem "omniauth", "~> 1.9"

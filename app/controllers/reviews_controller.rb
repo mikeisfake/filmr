@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     movie = Movie.find_by(id: params[:review][:movie_id])
     review = Review.new(review_params)
     if review.save
-      redirect_to movie_path(movie)
+      redirect_to movies_path
     else
       flash[:notice] = "that didn't work out"
     end
