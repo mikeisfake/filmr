@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
-  def home
+  def index
     if user_signed_in?
-      render 'movies/index'
+      render 'users/users/dashboard'
     end
   end
 end

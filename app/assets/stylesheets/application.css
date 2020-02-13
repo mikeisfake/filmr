@@ -64,6 +64,10 @@ body {
  height: calc(100vh - 100px)
 }
 
+.container-all.open {
+  filter: blur(1em);
+}
+
 h1 {
  font-size: 1.7em;
  letter-spacing: 2px;

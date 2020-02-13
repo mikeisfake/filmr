@@ -1,0 +1,60 @@
+#btn {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  width: 20px;
+  height:20px;
+  cursor: pointer;
+  transition: .1s;
+  top: 40px;
+  right: 20px;
+  background: var(--menu);
+  border-radius: 5px;
+  padding: 8px;
+  z-index: 2;
+}
+
+#btn:hover .line,
+#btn:hover .line:before,
+#btn:hover .line:after {
+  border-bottom: 1px solid var(--text);
+}
+
+.line{
+  position: absolute;
+  top: 50%;
+  border-bottom: 1px solid var(--text);
+  width: 20px;
+  transition: .1s;
+}
+
+.line:before,
+.line:after {
+  position: absolute;
+  content :'';
+  width: 20px;
+  border-bottom: 1px solid var(--text);
+  transition: .3s;
+}
+
+.line:before {
+  top: -6px;
+}
+
+.line:after {
+  top: 6px;
+}
+
+#btn.active .line:before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+#btn.active .line:after {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+#btn.active .line {
+  border-bottom: 1px solid transparent;
+}

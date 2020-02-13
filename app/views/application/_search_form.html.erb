@@ -1,7 +1,10 @@
-<%= form_tag movies_path, method: :get do %>
+<%= form_tag dashboard_path, method: :get do %>
   <%= text_field_tag('search', nil, placeholder: 'search for a movie') %>
 
   <%= button_tag type: 'submit', class: "button" do %>
     <%= fa_icon "search" %>
   <% end %>
+<% end %>
+<% if params[:search] %>
+  <%= render 'movie_list' %>
 <% end %>

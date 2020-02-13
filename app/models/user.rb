@@ -12,6 +12,9 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :movies, through: :reviews
 
+  acts_as_follower
+  acts_as_followable
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
     user.username = auth.info.nickname

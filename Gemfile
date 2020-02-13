@@ -73,3 +73,5 @@ gem "dotenv-rails", "~> 2.7"
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 
 gem "omniauth", "~> 1.9"
+
+gem "acts_as_follower", "~> 0.2.1"

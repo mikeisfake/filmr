@@ -12,13 +12,13 @@
 
   <body>
     <%= render 'flash' %>
-    <%= render 'logout_button' %>
+    <%= render 'menu_button' %>
+    <%= render 'main_menu' %>
 
     <div class="container-all">
-
       <%= yield %>
-
     </div>
+
   </body>
   <script>
     $('input[type=radio]').click(function() {
@@ -27,6 +27,12 @@
 
     $(".alert, .notice").addClass("slideInDown").delay(3000).queue(function () {
       $(this).addClass("slideOutUp").dequeue();
+    });
+
+    $( "#btn" ).click(function() {
+      $( "#menu" ).toggleClass( "open", 250, "easeOutCirc" );
+      $( ".container-all").toggleClass( "open" , 500, "easeOutCirc");
+      $( this ).toggleClass( "active");
     });
   </script>
 </html>
