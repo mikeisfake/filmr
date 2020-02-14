@@ -1,4 +1,11 @@
 <h1><%= @user.username %></h1>
+
+<%= link_to "follow", follow_user_path(@user) %>
+
+<% @following.each do |user| %>
+<%= user %>
+<% end %>
+
 <%= render 'search_form' %>
 <section class="column">
   <h2>recently reviewed movies.</h2>

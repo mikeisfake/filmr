@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   resources :movies do
     resources :reviews
   end
-  resources :users, only: [:show], path: 'profile'
+  resources :users, only: [:show], path: 'profile' do
+    member do
+      get :follow
+      get :unfollow
+    end 
+  end
   resources :reviews
   resources :follows, only: [:index], path: 'following'
   resources :tags, only: [:show]
