@@ -15,29 +15,16 @@ class MoviesController < ApplicationController
   end
 
   def create
-    if Movie.find_by(imdbid: params[:movie][:imdbid])
-      @movie = Movie.find_by(imdbid: params[:movie][:imdbid])
+    query = params[:movie][:imdbid]
+    if @movie = Movie.find_by(imdbid: query)
+      redirect_to @movie
+    elsif set_movie(query).save
       redirect_to @movie
     else
-      result = return_api(params[:movie][:imdbid])
-      @movie = Movie.new(
-        title: result['Title'],
-        year: result['Year'],
-        genre: result['Genre'],
-        director: result['Director'],
-        poster: result['Poster'],
-        plot: result['Plot'],
-        imdbid: result['imdbID']
-      )
-      if @movie.save
-        redirect_to @movie
-      else
-        flash[:notice] = "Invalid entry"
-        @movies = Movie.all
-        render :index
-      end
+      flash[:notice] = "Invalid entry"
+      @movies = Movie.all
+      render :index
     end
-
   end
 
   private

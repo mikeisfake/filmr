@@ -8,10 +8,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @movie = Movie.new
-    if params[:search]
-      result = search_api(params[:search])
-      set_movie_list(result)
-    end
+    set_movie_list params[:search] if params[:search]
     render :dashboard
   end
 
