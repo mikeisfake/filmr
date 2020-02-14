@@ -20,13 +20,12 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400&display=swap');
 
 :root {
- --accent: #548FCA;
+ --accent: #7C9E39;
  --alert: #d1473d;
- --menu: #fff;
- --button: #222;
- --text: #111;
- --background: #eee;
- --hover: rgba(200,200,200, .3);
+ --menu: #111;
+ --text: #eee;
+ --background: #000;
+ --hover: rgba(0,0,0, .3);
 }
 
 @keyframes click {
@@ -94,6 +93,10 @@ a {
 
 a:visited {
  color: var(--text);
+}
+
+a:hover {
+  color: var(--accent)
 }
 
 .column {

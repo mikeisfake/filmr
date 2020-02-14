@@ -5,10 +5,21 @@
   width: 350px;
   height: 100vh;
   margin-left: 150vw;
-  z-index: 1;
+  z-index: 2;
   background: var(--menu);
   &.open {
     margin-left: calc(100vw - 350px);
+  }
+}
+
+#blocker {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  margin-left: 100vw;
+  z-index: 1;
+  &.open {
+    margin-left: 0
   }
 }
 
@@ -24,5 +35,6 @@
   background: var(--hover);
   &:hover {
     background: var(--accent);
+    color: var(--text);
   }
 }

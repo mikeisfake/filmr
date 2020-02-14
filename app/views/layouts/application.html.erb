@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <%= render 'blocker' %>
     <%= render 'flash' %>
     <%= render 'menu_button' %>
     <%= render 'main_menu' %>
@@ -29,9 +30,8 @@
       $(this).addClass("slideOutUp").dequeue();
     });
 
-    $( "#btn" ).click(function() {
-      $( "#menu" ).toggleClass( "open", 250, "easeOutCirc" );
-      $( ".container-all").toggleClass( "open" , 500, "easeOutCirc");
+    $( "#btn, #blocker" ).click(function() {
+      $( "#menu, #blocker, .container-all" ).toggleClass( "open", 250, "easeOutCirc" );
       $( this ).toggleClass( "active");
     });
   </script>

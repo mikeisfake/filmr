@@ -11,7 +11,7 @@
   background: var(--menu);
   border-radius: 5px;
   padding: 8px;
-  z-index: 2;
+  z-index: 3;
 }
 
 #btn:hover .line,
