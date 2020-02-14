@@ -50,6 +50,19 @@ input[type="radio"] {
   display: none;
 }
 
+.red{
+  color: var(--alert)
+}
+
+.green {
+  color: var(--accent)
+}
+
+.letter {
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
 .alert {
   background: var(--alert);
   color: var(--text);

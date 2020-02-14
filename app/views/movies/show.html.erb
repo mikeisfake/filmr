@@ -9,7 +9,7 @@
 
   </section>
 
-  <section class="column col-right">
+  <section class="column col-right animated fadeInRight">
     <% @movie.reviews.last(5).each do |review| %>
         <%= link_to review.render_content, review_path(review), class: "review button" %>
         <span class="row">

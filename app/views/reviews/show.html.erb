@@ -3,7 +3,7 @@
     <%= render 'movie_data' %>
   </div>
 
-  <div class="column col-right">
+  <div class="column col-right animated fadeInRight">
     <p class="review-show"><%= @review.render_content %></p>
     posted on: <%= @review.date %><br>
     <% if !@review.tags.empty? %>
