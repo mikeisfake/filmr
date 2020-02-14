@@ -31,6 +31,18 @@ class ApplicationController < ActionController::Base
     )
   end
 
+  def find_or_create_movie(query)
+    if @movie = Movie.find_by(imdbid: query)
+      redirect_to @movie
+    elsif set_movie(query).save
+      redirect_to @movie
+    else
+      flash[:notice] = "Invalid entry"
+      @movies = Movie.all
+      render :index
+    end
+  end
+
   protected
 
  def configure_permitted_parameters

@@ -15,16 +15,7 @@ class MoviesController < ApplicationController
   end
 
   def create
-    query = params[:movie][:imdbid]
-    if @movie = Movie.find_by(imdbid: query)
-      redirect_to @movie
-    elsif set_movie(query).save
-      redirect_to @movie
-    else
-      flash[:notice] = "Invalid entry"
-      @movies = Movie.all
-      render :index
-    end
+    find_or_create_movie params[:movie][:imdbid]
   end
 
   private

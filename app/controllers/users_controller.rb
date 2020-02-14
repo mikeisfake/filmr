@@ -4,12 +4,13 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @movies = Movie.user_movies(@user)
+    @movie = Movie.new
+    set_movie_list params[:search] if params[:search]
   end
 
   def dashboard
     @movie = Movie.new
     set_movie_list params[:search] if params[:search]
-    render :dashboard
   end
 
   def follow
