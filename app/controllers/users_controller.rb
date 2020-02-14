@@ -9,19 +9,8 @@ class UsersController < ApplicationController
   def dashboard
     @movie = Movie.new
     if params[:search]
-      @movie_list = []
-      movie = params[:search]
-      query = search_api(movie)
-      if !query['Search'].nil?
-        @movie_list = query['Search'].compact.map do |m|
-          if m['Poster']== 'N/A'
-            m['Poster'] = 'app/assets/images/no-cover.png'
-          end
-          Movie.new(title: m['Title'], year: m['Year'], poster: m['Poster'], imdbid: m['imdbID'])
-        end
-      else
-        flash[:notice] = "No results bro"
-      end
+      result = search_api(params[:search])
+      set_movie_list(result)
     end
     render :dashboard
   end

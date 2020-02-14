@@ -1,6 +1,6 @@
 #btn {
   display: flex;
-  position: absolute;
+  position: fixed;
   align-items: center;
   width: 20px;
   height:20px;
