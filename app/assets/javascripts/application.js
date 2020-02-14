@@ -15,11 +15,3 @@
 //= require_tree .
 //= require jquery
 //= require jquery-ui
-
-$('input[type=radio]').on('change', function () {
-  $(this).closest("form").submit();
-});
-
-$(".alert, .success").addClass("slideInDown").delay(3000).queue(function () {
-  $(this).addClass("slideOutUp").dequeue();
-});

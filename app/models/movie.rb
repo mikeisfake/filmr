@@ -7,7 +7,7 @@ class Movie < ApplicationRecord
   accepts_nested_attributes_for :reviews
 
   def titleyear
-    "#{self.title}, (#{self.year})"
+    "#{self.title} (#{self.year})"
   end
 
   def render_poster
@@ -15,4 +15,9 @@ class Movie < ApplicationRecord
     str = "<img src='"+ img +"'>"
     str.html_safe
   end
+
+  def self.user_movies(user)
+    joins(:reviews).where(reviews: { user: user } )
+  end
+
 end

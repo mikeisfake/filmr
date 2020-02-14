@@ -13,16 +13,6 @@
   color: var(--text)
 }
 
-.delete-button:hover {
-  background: var(--alert)
-}
-
-.session-button {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-}
-
 input:focus,
 textarea:focus,
 button:focus {
@@ -67,6 +57,7 @@ input[type="radio"] {
   display: block;
   text-align: center;
   padding: 10px 0;
+  z-index: 3
 }
 
 .notice {
@@ -76,4 +67,5 @@ input[type="radio"] {
   display: block;
   text-align: center;
   padding: 10px 0;
+  z-index: 3
 }

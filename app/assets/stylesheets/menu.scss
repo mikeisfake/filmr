@@ -1,0 +1,28 @@
+#menu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 100vh;
+  margin-left: 150vw;
+  z-index: 1;
+  background: var(--menu);
+  &.open {
+    margin-left: calc(100vw - 350px);
+  }
+}
+
+.menu-list {
+  margin-top: 60px;
+}
+.menu-list a {
+  display: block;
+  margin: 2px 0;
+  font-size: 1.2em;
+  padding: 10px;
+  padding-left: 20px;
+  background: var(--hover);
+  &:hover {
+    background: var(--accent);
+  }
+}

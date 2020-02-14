@@ -22,4 +22,8 @@ class User < ApplicationRecord
     #user.image = auth.info.image
     end
   end
+
+  def self.recent_movies
+    joins(:movies).sort_by{|t| - t.created_at.to_i}.first(5)
+  end
 end

@@ -4,22 +4,26 @@
   </div>
 
   <div class="column col-right">
-    <%= @review.render_content %><br><br>
-    <%= @review.date %><br>
-    <div class="row">
-      <p>tags: </p>
-      <% @review.tags.each do |tag| %>
-        <%= link_to tag.name, tag_path(tag), class: "tag" %>
-      <% end %>
-    </div>
+    <p class="review-show"><%= @review.render_content %></p><br><br>
+    posted on: <%= @review.date %><br>
+    <% if !@review.tags.empty? %>
+      <div class="row">
+        <p>tags: </p>
+        <% @review.tags.each do |tag| %>
+          <%= link_to tag.name, tag_path(tag), class: "tag" %>
+        <% end %>
+      </div>
+    <% end %>
   <br><br>
     <div class="row">
-      <%= button_to review_path(@review), method: :delete, class: "button delete-button" do %>
-        <%= fa_icon "trash" %>
+      <% if @review.owns? current_user %>
+        <%= button_to review_path(@review), method: :delete, class: "button delete-button" do %>
+          <%= fa_icon "trash" %>
+        <% end %>
+        <%= button_to edit_review_path(@review), method: :get, class: "button" do %>
+          <%= fa_icon "edit" %>
+        <%end%>
       <% end %>
-      <%= button_to edit_review_path(@review), method: :get, class: "button" do %>
-        <%= fa_icon "edit" %>
-      <%end%>
       <%= render 'home_button' %>
     </div>
   </div>

@@ -27,4 +27,8 @@ class Review < ApplicationRecord
     end
   end
 
+  def owns?(user)
+    self.user == user
+  end
+
 end

@@ -10,9 +10,11 @@
   </section>
 
   <section class="column col-right">
-    <% @movie.reviews.each do |review| %>
-      <p><%= review.render_content %><br>
-      <%= link_to review.date, review_path(review)%></p>
+    <% @movie.reviews.last(5).each do |review| %>
+        <%= link_to review.render_content, review_path(review), class: "review button" %>
+        <span class="row">
+          <%= link_to review.user.username, user_path(review.user), class: "button" %>
+        </span>
     <% end %>
   </section>
 </section>

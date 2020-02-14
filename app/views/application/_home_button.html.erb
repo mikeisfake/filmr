@@ -1,3 +1,6 @@
 <%= button_to root_path, method: :get, class: "button" do %>
   <%= fa_icon "home" %>
 <%end%>
+<%= button_to user_path(current_user), method: :get, class: "button" do %>
+  <%= fa_icon "user" %>
+<%end%>

@@ -1,6 +1,9 @@
-class Users::UsersController < ApplicationController
+class UsersController < ApplicationController
+  before_action :authenticate_user!
 
   def show
+    @user = User.find(params[:id])
+    @movies = Movie.user_movies(@user)
   end
 
   def dashboard
@@ -12,7 +15,7 @@ class Users::UsersController < ApplicationController
       if !query['Search'].nil?
         @movie_list = query['Search'].compact.map do |m|
           if m['Poster']== 'N/A'
-            m['Poster'] = 'https://66.media.tumblr.com/5a186c216ce45dbc68730be8ced57a06/e872194058456955-3c/s400x600/68cd75aef527634109c5573a4ef945941dc451b2.png'
+            m['Poster'] = 'app/assets/images/no-cover.png'
           end
           Movie.new(title: m['Title'], year: m['Year'], poster: m['Poster'], imdbid: m['imdbID'])
         end
@@ -21,6 +24,9 @@ class Users::UsersController < ApplicationController
       end
     end
     render :dashboard
+  end
+
+  def follow
   end
 
 end

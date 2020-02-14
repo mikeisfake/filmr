@@ -26,7 +26,7 @@
  --button: #222;
  --text: #eee;
  --background: #000;
- --hover: rgba(32,28,41, .6);
+ --hover: rgba(0,0,0, .3);
 }
 
 @keyframes click {
@@ -66,6 +66,7 @@ body {
 
 .container-all.open {
   filter: blur(1em);
+  margin-right: 350px
 }
 
 h1 {
@@ -105,4 +106,8 @@ a:visited {
  flex-direction: row;
  flex-wrap: wrap;
  align-items:center;
+}
+
+a.delete-button:hover {
+  background: var(--alert)
 }

@@ -5,3 +5,11 @@
   border-radius: 5px;
   white-space: nowrap;
 }
+
+.review-show {
+  max-height: 450px;
+  overflow: auto;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--menu);
+}
