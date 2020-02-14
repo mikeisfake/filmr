@@ -2,6 +2,7 @@
   background: var(--menu);
   padding: 5px;
   margin: 3px;
+  line-height: 250%;
   border-radius: 5px;
   white-space: nowrap;
 }
@@ -9,7 +10,8 @@
 .review-show {
   max-height: 450px;
   overflow: auto;
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
-  border: 1px solid var(--menu);
+  background: var(--menu);
+  margin-bottom: 10px
 }

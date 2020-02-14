@@ -20,13 +20,13 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400&display=swap');
 
 :root {
- --accent: #3fa5b0;
+ --accent: #548FCA;
  --alert: #d1473d;
- --menu: #111;
+ --menu: #fff;
  --button: #222;
- --text: #eee;
- --background: #000;
- --hover: rgba(0,0,0, .3);
+ --text: #111;
+ --background: #eee;
+ --hover: rgba(200,200,200, .3);
 }
 
 @keyframes click {
@@ -106,8 +106,12 @@ a:visited {
  flex-direction: row;
  flex-wrap: wrap;
  align-items:center;
+ justify-content: center;
 }
 
 a.delete-button:hover {
+  background: var(--alert)
+}
+.delete-button:hover {
   background: var(--alert)
 }

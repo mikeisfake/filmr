@@ -1,16 +1,16 @@
 <h1><%= @user.username %></h1>
 <section class="column">
   <h2>recently reviewed movies.</h2>
-  <ul class="row">
+  <div class="row">
     <% @movies.last(5).reverse.each do |m| %>
       <p class="result-cards"><%= link_to image_tag(m.poster), movie_path(m) %></p>
     <% end %>
-  </ul>
+  </div>
 
   <h2>random reviews.</h2>
-  <ul class="row">
+  <div class="row">
     <% @movies.sample(5).each do |m| %>
       <p class="result-cards"><%= link_to image_tag(m.poster), movie_path(m) %></p>
     <% end %>
-  </ul>
+  </div>
 </section>

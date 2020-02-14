@@ -14,15 +14,16 @@ class Review < ApplicationRecord
   end
 
   def tag_name=(names)
-    names.split(',').map do |n|
-      self.tags << Tag.find_or_create_by(name: n)
+    tags = names.split(',').map do |n|
+      Tag.find_or_create_by(name: n)
     end
+    self.tags << (self.tags + tags)
   end
 
   def tag_name
     if self.tags
       self.tags.map do |tag|
-        tag.name
+        "#{tag.name},"
       end
     end
   end

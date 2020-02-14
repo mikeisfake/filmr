@@ -4,15 +4,14 @@
   </div>
 
   <div class="column col-right">
-    <p class="review-show"><%= @review.render_content %></p><br><br>
+    <p class="review-show"><%= @review.render_content %></p>
     posted on: <%= @review.date %><br>
     <% if !@review.tags.empty? %>
-      <div class="row">
-        <p>tags: </p>
-        <% @review.tags.each do |tag| %>
-          <%= link_to tag.name, tag_path(tag), class: "tag" %>
+      <span>
+        <% @review.tags.uniq.each do |tag| %>
+          <%= link_to tag.name, tag_path(tag), class: "tag" unless tag.name.empty? %>
         <% end %>
-      </div>
+      </span>
     <% end %>
   <br><br>
     <div class="row">
