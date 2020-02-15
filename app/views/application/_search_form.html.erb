@@ -1,5 +1,6 @@
-<%= form_tag dashboard_path, method: :get do %>
+<%= form_tag do %>
   <%= text_field_tag('search', nil, placeholder: 'search for a movie') %>
+  <%= hidden_field_tag :id, current_user.id %>
 
   <%= button_tag type: 'submit', class: "button" do %>
     <%= fa_icon "search" %>

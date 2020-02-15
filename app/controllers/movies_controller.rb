@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
   end
 
   def create
-    find_or_create_movie params[:movie][:imdbid]
+    find_or_create_movie params[:movie][:imdbid] if params[:movie][:imdbid]
   end
 
   private

@@ -1,10 +1,8 @@
-<h1><%= @user.username %></h1>
+<div class="row">
+  <h1><%= @user.username %></h1>&nbsp
+  <div><%= render 'follow_button' %></div>
+</div>
 
-<%= link_to "follow", follow_user_path(@user) %>
-
-<% @following.each do |user| %>
-<%= user %>
-<% end %>
 
 <%= render 'search_form' %>
 <section class="column">

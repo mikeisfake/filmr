@@ -1,0 +1,11 @@
+<% if @user != current_user %>
+  <% if @user.followed_by?(current_user) %>
+    <%= button_to unfollow_user_path(@user), method: :get, class: "button delete-button" do %>
+      <%= fa_icon "plus" %>
+    <% end %>
+  <% else %>
+    <%= button_to follow_user_path(@user), method: :get, class: "button" do %>
+      <%= fa_icon "plus" %>
+    <% end %>
+  <% end %>
+<% end %>

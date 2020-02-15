@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     if user_signed_in?
-      render 'users/dashboard'
+      redirect_to dashboard_path
     end
   end
 end

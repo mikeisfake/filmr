@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     member do
       get :follow
       get :unfollow
-    end 
+    end
   end
   resources :reviews
   resources :follows, only: [:index], path: 'following'
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'users#dashboard'
   post '/dashboard', to: 'users#dashboard'
+  post '/profile/:id', to: 'users#show'
 
   root 'welcome#index'
 end

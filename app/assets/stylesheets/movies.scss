@@ -6,33 +6,28 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 820px
+  width: 820px;
+  max-height: 620px;
+  overflow: auto;
 }
 
 .result-cards {
   width: 150px;
   height: 220px;
   margin: 4px;
-  font-size: .7em;
   line-height: 1.5;
   border-radius: 5px;
-}
-
-label.result-cards{
-  border: 2px solid transparent;
-}
-
-.result-cards img {
-  width: 100%;
-  height: 100%;
-}
-
-.result-cards:hover {
-  transform: scale(1.05);
-}
-
-input[type="radio"]:checked+label {
-  border: 2px solid var(--accent)
+  &:hover {
+    transform: scale(1.05);
+  }
+  & img {
+    width: 100%;
+    height: 100%;
+  }
+  &.small-card {
+    width: 75px;
+    height: 110px;
+  }
 }
 
 /* show page */
@@ -46,20 +41,18 @@ input[type="radio"]:checked+label {
 
 .col-left {
   align-items: flex-end;
-}
-
-.col-left img {
-  width: 300px;
-  height: 440px
-}
-.col-left,
-.col-left h1,
-.col-left h2 {
   text-align: right;
+  & img {
+    width: 300px;
+    height: 440px;
+  }
+  & h1,
+  & h2 {
+    text-align: right;
+  }
 }
-
 .review-container {
-  margin: 15px 0; 
+  margin: 15px 0;
 }
 
 .review {
@@ -69,4 +62,14 @@ input[type="radio"]:checked+label {
   border-radius: 5px;
   max-height: 90px;
   overflow:hidden;
+}
+
+.movie-details {
+  display: block;
+  font-size: 1.1em;
+  background: var(--menu);
+  margin-top: -5px;
+  border-radius: 0 0 5px 5px;
+  padding: 10px;
+  margin-bottom: 20px;
 }

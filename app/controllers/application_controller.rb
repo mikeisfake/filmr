@@ -20,12 +20,14 @@ class ApplicationController < ActionController::Base
 
   def set_movie(string)
     result = HTTParty.get("http://www.omdbapi.com/?i=#{string}&apikey=2cedcff3&").compact
+    dir = result['Director'] == 'N/A' ? result['Writer'] : result['Director']
+    poster = result['Poster'] == 'N/A' ? 'app/assets/images/no-poster.png' : result['Poster']
     @movie = Movie.new(
       title: result['Title'],
       year: result['Year'],
       genre: result['Genre'],
-      director: result['Director'],
-      poster: result['Poster'],
+      director: dir,
+      poster: poster,
       plot: result['Plot'],
       imdbid: result['imdbID']
     )
@@ -37,7 +39,7 @@ class ApplicationController < ActionController::Base
     elsif set_movie(query).save
       redirect_to @movie
     else
-      flash[:notice] = "Invalid entry"
+      flash[:notice] = "invalid entry"
       @movies = Movie.all
       render :index
     end

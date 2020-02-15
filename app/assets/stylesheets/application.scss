@@ -58,16 +58,12 @@ body {
  display: flex;
  flex-direction: column;
  align-items: center;
- justify-content: center;
- height: 100vh;
+ padding-top: 25vh;
+ height: 100%;
  &.open {
    filter: blur(1em);
    margin-right: 350px;
  }
-}
-
-.container-all.open {
-
 }
 
 h1 {

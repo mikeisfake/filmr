@@ -1,8 +1,11 @@
-<h1>all movies youve watched</h1>
-<div class="row">
+<h1>all movies you've watched.</h1>
+<br>
+<div class="movie-list row">
   <% @movies.uniq.each do |movie| %>
-    <div class="result-cards">
+    <div class="result-cards small-card">
       <%= link_to image_tag(movie.poster), movie_path(movie) %>
     </div>
   <% end %>
 </div>
+<br>
+<%= button_to "search more movies", user_path(current_user), class: "button" %>

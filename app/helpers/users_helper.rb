@@ -1,5 +1,9 @@
 module UsersHelper
-  def your_page
-    current_user.id == params[:id]
+
+  def all_follow_reviews(follows, num)
+    follows.map do |user|
+      user.reviews
+    end.flatten.sample(num)
   end
+
 end
