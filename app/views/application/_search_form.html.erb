@@ -1,4 +1,4 @@
-<%= form_tag do %>
+<%= form_tag this_page, method: :get do %>
   <%= text_field_tag('search', nil, placeholder: 'search for a movie') %>
   <%= hidden_field_tag :id, current_user.id %>
 

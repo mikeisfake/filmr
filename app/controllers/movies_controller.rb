@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @movies = current_user.movies
+    @movies = Movie.user_movies(current_user)
   end
 
   def show

@@ -1,6 +1,15 @@
-<ul>
-  <% @tag.reviews.each do |review| %>
-    <%= review.movie.titleyear %>
-    <%= review.content %>
-  <% end %>
-</ul>
+<div class="tag-page">
+  <h1 class="tag-title">reviews tagged as <span class="green"><%=@tag.name%></span>.</h1>
+
+  <div class="tagged-results-container">
+    <% @tag.reviews.each do |review| %>
+    <a href="<%=review_path(review)%>" class="tagged-content">
+      <div class="result-cards small-card"><%= image_tag(review.movie.poster)%></div>
+      <div class="tagged-review">
+        <h1><%= review.movie.titleyear %></h1>
+        <p><%= review.render_content %></p>
+      </div>
+      </a>
+    <% end %>
+  </div>
+</div>

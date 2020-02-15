@@ -1,9 +1,5 @@
 <h1>welcome <%= current_user.username if user_signed_in?%>.</h1>
-<ul class="row">
-  <% @follows.each do |user| %>
-    <li><%= link_to user.username, user_path(user), class: "button" %></li>
-  <% end %>
-</ul><br>
+<%= render 'search_form' %> 
 
 
 <h1>reviews from people you follow.</h1>

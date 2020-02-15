@@ -13,6 +13,9 @@ class UsersController < ApplicationController
     @follows = @user.all_follows.map do |f|
       User.find_by(id: f.followable_id)
     end
+
+    @movie = Movie.new
+    set_movie_list params[:search] if params[:search]
   end
 
   def follow
