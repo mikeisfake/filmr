@@ -2,10 +2,21 @@
   background: var(--menu);
   padding: 8px;
   margin: 3px;
-  line-height: 250%;
+  line-height: 3.5;
   border-radius: 5px;
   white-space: nowrap;
+  & .fas {
+    color: var(--menu-item);
+    transition: .3s ease;
+  }
+  &:hover {
+    color: var(--text);
+  }
+  &:hover .fas {
+    color: var(--alt-accent);
+  }
 }
+
 
 .review {
   margin: 15px 0;
@@ -13,12 +24,17 @@
   padding-left: 20px;
   font-family: var(--sans-serif);
   font-size: 1.3em;
-  border-left: 5px solid var(--accent);
+  border-left: 5px solid var(--menu-item);
+  border-radius: 0 5px 5px 0;
   background: var(--menu);
   max-height: 150px;
   overflow: auto;
+  box-shadow: var(--shadow);
    h2 {
-    font-size: 1.1em
+    font-size: 1.1em;
+  }
+  &:hover {
+    border-left: 5px solid var(--accent);
   }
 }
 
@@ -29,4 +45,11 @@ a.review:hover {
 .review-show {
   max-height: calc(100vh - 250px);
   overflow: auto;
+}
+
+.fa-calendar {
+  padding: 10px;
+  background: var(--menu);
+  border-radius: 5px;
+  color: var(--accent);
 }

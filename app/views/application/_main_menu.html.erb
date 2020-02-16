@@ -1,10 +1,31 @@
 <div id="menu">
     <div class="menu-list">
-      <h2> menu.</h2><br>
-      <%= link_to "your movies", movies_path %>
-      <%= link_to "your profile", user_path(current_user) %>
-      <%= link_to "dashboard", dashboard_path %>
-      <%= link_to "edit profile", edit_user_registration_path %>
-      <%= link_to "log out", destroy_user_session_path, method: :delete, class: "delete-button" %>
+      <h2><%= current_user.username %></h2>
+
+      <%= link_to movies_path do %>
+      <i class="fas fa-video"></i>
+      <span>movies</span>
+      <% end %>
+
+      <%= link_to user_path(current_user) do %>
+      <i class="far fa-meh-blank"></i>
+      <span>profile</span>
+      <% end %>
+
+      <%= link_to dashboard_path do %>
+      <i class="fas fa-stream"></i>
+      <span>dashboard</span>
+      <% end %>
+
+      <%= link_to edit_user_registration_path do %>
+      <i class="fas fa-edit"></i>
+      <span>manage profile</span>
+      <% end %>
+
+      <%= link_to destroy_user_session_path, method: :delete do %>
+      <%= fa_icon "times-circle" %>
+      <span>logout</span>
+      <% end %>
+
     </div>
 </div>

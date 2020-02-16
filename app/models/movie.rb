@@ -18,8 +18,8 @@ class Movie < ApplicationRecord
     str.html_safe
   end
 
-  # def self.user_movies(user)
-  #   joins(:reviews).where(reviews: { user: user } )
-  # end
+  def genres
+    self.genre.split(",")
+  end
 
 end

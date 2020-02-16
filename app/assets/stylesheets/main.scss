@@ -6,11 +6,13 @@
   border-radius: 5px;
   border: 0px solid transparent;
   text-transform: lowercase;
-}
-
-.button:hover{
-  background: var(--accent);
-  color: var(--text)
+  &:hover {
+    background: var(--accent);
+    color: var(--text);
+  }
+  &:active {
+    animation: click;
+  }
 }
 
 input:focus,
@@ -43,7 +45,6 @@ textarea {
 	height: calc(100vh - 350px);
   padding: 5px;
   resize: none;
-  font-size: 1.2em;
   letter-spacing: 1px;
   line-height: 2;
 }
@@ -56,31 +57,44 @@ input[type="radio"] {
   color: var(--alert)
 }
 
-.green {
+.accent {
   color: var(--accent)
 }
 
 .letter {
-  font-size: 1.7em;
-  font-weight: bold;
+  text-transform: lowercase;
+  font-family: var(--sans-serif);
 }
 
-.alert {
-  background: var(--alert);
-  color: var(--text);
+.flash-container {
   width: 100vw;
-  display: block;
-  text-align: center;
-  padding: 10px 0;
-  z-index: 3
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15px;
 }
 
-.notice {
-  background: var(--accent);
-  color: var(--text);
-  width: 100vw;
-  display: block;
-  text-align: center;
-  padding: 10px 0;
-  z-index: 3
+.flash {
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: var(--shadow);
+  &.notice {
+    background: var(--notice);
+  }
+  &.alert {
+    background: var(--alert);
+  }
+}
+
+.logo {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 10px;
+  font-size: 2em;
+  color: var(--accent);
+  background: var(--menu);
+  border-radius: 8px;
+  font-family: var(--sans-serif);
+  font-weight: 600;
 }

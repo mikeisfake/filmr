@@ -3,4 +3,5 @@ class Tag < ApplicationRecord
   has_many :reviews, through: :review_tags
 
   validates :name, uniqueness: true
+  validates :name, presence: true
 end

@@ -1,25 +1,28 @@
-<div class="column col-left">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="column col-left registration">
+  <div class="registration-form">
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-    <%= f.text_field :username, autofocus: true, placeholder: "username" %><br>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+      <%= f.text_field :username, autofocus: true, placeholder: "username" %><br>
+      <%= f.text_area :bio, placeholder: "a little about you", class: "bio" %><br>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
 
-    <%= f.label "leave blank if you don't want to change" %> <br>
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "password" %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "password confirmation" %>
+      <%= f.label "leave blank if you don't want to change" %> <br>
+      <%= f.password_field :password, placeholder: "password" %>
+      <%= f.password_field :password_confirmation, placeholder: "password confirmation" %>
 
-
-    <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "current password for authorization" %><br>
-    <div>
-    <%= f.submit "Update", class: "button" %>
+      <%= f.password_field :current_password, placeholder: "current password" %><br>
+      <div>
+      <%= f.submit "update", class: "button" %>
+      </div>
+  <% end %><br><br>
+    <div class="registration-buttons">
+      <%= button_to "delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button delete-button"%><br><br>
+      <%= button_to "go back", :back, class: "button" %>
     </div>
-<% end %><br><br>
-
-<%= button_to "delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button delete-button"%><br><br>
-<%= button_to "go back", :back, class: "button" %>
+  </div>
 </div>

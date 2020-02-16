@@ -19,6 +19,7 @@
   border-radius: 5px;
   &:hover {
     transform: scale(1.05);
+    box-shadow: var(--shadow);
   }
   & img {
     width: 100%;
@@ -31,7 +32,7 @@
 }
 
 label.result-cards::before,
-.result-cards > a::before {
+.result-cards > a::before,{
   content: attr(data_value);
   z-index: 3;
   width: 150px;
@@ -47,6 +48,10 @@ label.result-cards::before,
   align-items: center;
   opacity: 0;
   transition: .6s ease;
+  &.small-card {
+    width: 75px;
+    height: 110px;
+  }
 }
 
 label.result-cards:hover::before,
@@ -63,10 +68,11 @@ label.result-cards:hover::before,
 
 .col-left {
   width: 350px;
-  height:calc(100vh - 40px);
+  height:calc(100vh - 70px);
   align-items: flex-end;
   justify-content: center;
   text-align: right;
+
   & img {
     width: 300px;
     height: 440px;
@@ -74,11 +80,29 @@ label.result-cards:hover::before,
   & h1,
   & h2 {
     text-align: right;
+    padding: 10px;
+    margin-top: 10px;
+    border-right: 5px solid var(--accent);
   }
+  & p {
+    line-height: 1.7;
+    letter-spacing: 1px;
+  }
+}
+
+.movie-data {
+  border-right: 1px dashed var(--menu-item);
+}
+
+.genre {
+  background: var(--menu-item);
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .poster-link img:hover {
   transform: scale(1.04);
+  box-shadow: var(--shadow);
 }
 
 .col-right {

@@ -1,4 +1,5 @@
-<div class="column col-left">
+<div class="registration column col-left">
+  <div class="registration-form">
 <h2>log in.</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -7,6 +8,7 @@
     <%= f.password_field :password, autocomplete: "current-password", placeholder: "password" %><br>
 
     <%= f.submit "Log in", class: "button" %><br><br>
-    <%= render "devise/shared/links" %>
 <% end %>
+<div class="registration-buttons"><%= render "devise/shared/links" %></div>
+</div>
 </div>

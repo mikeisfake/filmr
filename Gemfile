@@ -75,3 +75,5 @@ gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem "omniauth", "~> 1.9"
 
 gem "acts_as_follower", github: "tcocca/acts_as_follower"
+
+gem "material_icons", "~> 2.2"

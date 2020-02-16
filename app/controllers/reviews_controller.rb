@@ -4,6 +4,11 @@ class ReviewsController < ApplicationController
   before_action :set_movie, only: [:show, :edit]
   before_action :authenticate_user!
 
+  def index
+    @user = User.find_by(id: params[:user_id])
+    @reviews = @user.reviews
+  end
+
   def new
     @movie = Movie.find_by(id: params[:movie_id])
     @review = Review.new(movie_id: params[:movie_id])
@@ -33,12 +38,13 @@ class ReviewsController < ApplicationController
 
   def update
     @review.update(review_params)
-    flash[:notice] = "nice update bro"
+    flash[:notice] = "nice update"
     redirect_to @review
   end
 
   def destroy
     @review.destroy
+    flash[:alert] = "wooosh that review is gone forever."
     redirect_to root_path
   end
 

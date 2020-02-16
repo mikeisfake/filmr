@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_021509) do
+ActiveRecord::Schema.define(version: 2020_02_16_134229) do
 
   create_table "follows", force: :cascade do |t|
     t.string "followable_type", null: false
@@ -52,6 +52,13 @@ ActiveRecord::Schema.define(version: 2020_02_13_021509) do
     t.integer "user_id"
   end
 
+  create_table "settings", force: :cascade do |t|
+    t.boolean "color_mode", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name"
   end
@@ -66,6 +73,7 @@ ActiveRecord::Schema.define(version: 2020_02_13_021509) do
     t.string "username"
     t.string "provider"
     t.string "uid"
+    t.text "bio"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

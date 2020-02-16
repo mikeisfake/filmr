@@ -1,0 +1,13 @@
+<div class="dashboard">
+<h1>all reviews by <%= @user.username %></h1>
+<div class="dash-review-container">
+<% @reviews.each do |review| %>
+  <div class="review">
+    <div class="dash-image"><%= link_to image_tag(review.movie.poster), movie_path(review.movie) %>
+    </div>
+    <h2><%= link_to review.movie.titleyear, movie_path(review.movie) %></h2>
+    <span><%= review.render_content %></span>
+  </div>
+<% end %>
+</div>
+</div>

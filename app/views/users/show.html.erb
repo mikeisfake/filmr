@@ -1,22 +1,19 @@
-<div class="row">
-  <h1><%= @user.username %></h1>&nbsp
-  <div><%= render 'follow_button' %></div>
+<div class="profile-container">
+  <div class="profile-info">
+    <h1 class="username"> <%= @user.username %></h1><br><br>
+    <p><%= @user.bio %></p><br>
+    <div><%= render 'follow_button' %></div>
+  </div><br>
+
+  <% if @user == current_user %>
+    <%= render 'search_form' %>
+  <% end %>
+  <% if @user.reviews.present? %>
+    <%= render "recent_reviews" %>
+    <br><br>
+  <% end %>
+  <% if @follows.present? %>
+    <%= render 'follows' %>
+  <% end %>
+
 </div>
-
-
-<%= render 'search_form' %>
-<section class="column">
-  <h2>recently reviewed movies.</h2>
-  <div class="row">
-    <% @movies.last(5).reverse.each do |m| %>
-      <p class="result-cards"><%= link_to image_tag(m.poster), movie_path(m), data_value: m.titleyear %></p>
-    <% end %>
-  </div>
-
-  <h2>random reviews.</h2>
-  <div class="row">
-    <% @movies.sample(5).each do |m| %>
-      <p class="result-cards"><%= link_to image_tag(m.poster), movie_path(m), data_value: m.titleyear %></p>
-    <% end %>
-  </div>
-</section>

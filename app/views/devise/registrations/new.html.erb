@@ -1,14 +1,18 @@
-<div class="column col-left">
+<div class="column col-left registration">
+  <div class="registration-form">
   <h2>Sign up.</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
       <%= f.text_field :username, autofocus: true, placeholder: "username" %><br>
+      <%= f.label "optional, tell us a bit about yourself." %>
+      <%= f.text_area :bio, placeholder: "a little about you", class: "bio" %><br>
       <%= f.password_field :password, autocomplete: "new-password", placeholder: "password" %><br>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "confirm password"%>
 
       <div><%= f.submit "Sign up", class: "button" %></div><br><br>
-      <%= render "devise/shared/links" %>
   <% end %>
+  <div class="registration-buttons"><%= render "devise/shared/links" %></div>
+</div>
 </div>

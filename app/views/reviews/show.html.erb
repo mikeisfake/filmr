@@ -1,27 +1,30 @@
 <section class="row">
-  <div class="column col-left">
+  <div class="column col-left movie-data">
     <%= render 'movie_data' %><br>
     <div class="row">
       <% if @review.owns? current_user %>
         <%= button_to review_path(@review), method: :delete, class: "button delete-button" do %>
-          <%= fa_icon "trash" %>
+          <i class="fas fa-trash-alt"></i>
         <% end %>
         <%= button_to edit_review_path(@review), method: :get, class: "button" do %>
-          <%= fa_icon "edit" %>
+          <i class="fas fa-edit"></i>
         <%end%>
       <% end %>
       <%= render 'home_button' %>
     </div>
   </div>
 
-  <div class="column col-right animated fadeInRight">
-    <h2><%=@review.user.username%>s review of <%=@review.movie.title%>.</h2>
+  <div class="column col-right">
+    <h3>review by <span class="username"><%= link_to @review.user.username, user_path(@review.user)%></span></h3>
     <p class="review review-show"><%= @review.render_content %></p>
-    <p>posted on: <%= @review.render_date %></p><br>
+    <p><i class="far fa-calendar"></i> <%= @review.render_date %></p><br>
     <% if @review.tags.present? %>
-      <span>filed under:
-        <% @review.tags.uniq.each do |tag| %>
-          <%= link_to tag.name, tag_path(tag), class: "tag" unless tag.name.empty? %>
+      <span>
+        <% @review.tags.each do |tag| %>
+          <%= link_to tag_path(tag), class: "tag" do %>
+          <i class="fas fa-circle fa-xs"></i>
+          <span><%= tag.name %></span>
+          <% end %>
         <% end %>
       </span>
     <% end %>

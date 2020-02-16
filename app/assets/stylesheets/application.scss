@@ -20,33 +20,38 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Source+Sans+Pro:300,600&display=swap');
 
 :root {
- --accent: #3fa5b0;
+ --accent: #D17E12;
  --alert: #d1473d;
- --menu: #111;
+ --alt-accent: #4D7794;
+ --notice: #69B09A;
+ --menu: #1e1f28;
+ --menu-item: #2D2F39;
  --text: #eee;
  --text-accent: #808080;
- --background: #000;
- --hover: rgba(0,0,0, .6);
+ --background: #181921;
+ --hover: rgba(24,25,33, .9);
  --sans-serif: 'Source Sans Pro', sans-serif;
  --monospace: 'IBM Plex Mono', monospace;
+ --shadow: 0 0 15px rgba(0,0,0,.5);
 }
+
 
 @keyframes click {
  0% {
-   transform: scale(1.1)
- }
-
- 50% {
    transform: scale(1)
  }
 
+ 50% {
+   transform: scale(0.5)
+ }
+
  100% {
-   transform: scale(1.1)
+   transform: scale(1)
  }
 }
 
 * {
-transition: .3s ease;
+ transition: .3s ease;
 }
 
 body {
@@ -77,25 +82,31 @@ h1,
 h2,
 h3 {
   letter-spacing: 2px;
+  font-family: var(--sans-serif);
 }
 
 h1 {
  font-size: 2.3em;
- font-weight: 400;
  text-transform: uppercase;
- font-family: var(--sans-serif);
+ font-weight: 400;
 }
 
 h2 {
- font-family: var(--sans-serif);
- font-weight: 400;
- text-transform: uppercase;
  font-size: 2em;
+ text-transform: uppercase;
+ font-weight: 400;
 }
 
 h3 {
  font-size: 1.2em;
  color: var(--text-accent);
+ font-weight: 400;
+}
+
+hr {
+  width: 30%;
+  margin-top: 20px;
+  border: 1px dashed var(--accent);
 }
 
 img {
@@ -112,7 +123,7 @@ a:visited {
 }
 
 a:hover {
-  color: var(--accent)
+ color: var(--accent)
 }
 
 .column {
@@ -133,4 +144,8 @@ a.delete-button:hover {
 }
 .delete-button:hover {
   background: var(--alert)
+}
+
+.success-button:hover {
+  background: var(--notice);
 }

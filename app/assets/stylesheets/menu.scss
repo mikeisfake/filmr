@@ -26,16 +26,38 @@
 
 .menu-list {
   margin-top: 60px;
+  & h2 {
+    padding-left: 20px;
+  }
 }
 .menu-list a {
   display: block;
-  margin: 2px 0;
+  margin: 10px;
   font-size: 1.2em;
   padding: 10px;
   padding-left: 20px;
-  background: var(--hover);
+  border-radius: 5px;
+  background: var(--menu-item);
+  & .fas,
+  & .far,
+  & .fa {
+    background: var(--menu);
+    padding: 10px;
+    border-radius: 5px;
+  }
   &:hover {
-    background: var(--accent);
     color: var(--text);
+    background: var(--hover);
+    box-shadow: var(--shadow);
+  }
+  &:active {
+    animation: click;
+  }
+  &:hover .fas,
+  &:hover .far {
+    color: var(--accent);
+  }
+  &:hover .fa-times-circle {
+    color: var(--alert);
   }
 }

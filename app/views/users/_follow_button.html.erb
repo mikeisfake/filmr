@@ -1,11 +1,13 @@
-<% if @user != current_user %>
-  <% if @user.followed_by?(current_user) %>
-    <%= button_to unfollow_user_path(@user), method: :get, class: "button delete-button" do %>
-      <%= fa_icon "plus" %>
-    <% end %>
-  <% else %>
-    <%= button_to follow_user_path(@user), method: :get, class: "button" do %>
-      <%= fa_icon "plus" %>
+  <% if @user != current_user %>
+    <% if @user.followed_by?(current_user) %>
+      <%= button_to unfollow_user_path(@user), method: :get, class: "button delete-button follow-button" do %>
+        <%= fa_icon "times" %>
+        <span>unfollow <%= @user.username %></span>
+      <% end %>
+    <% else %>
+      <%= button_to follow_user_path(@user), method: :get, class: "button success-button follow-button" do %>
+        <%= fa_icon "plus" %>
+        <span>follow <%= @user.username %></span>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>

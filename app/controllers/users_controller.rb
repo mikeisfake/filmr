@@ -6,25 +6,32 @@ class UsersController < ApplicationController
     @movies = Movie.user_movies(@user)
     @movie = Movie.new
     set_movie_list params[:search] if params[:search]
+
+    @follows = @user.all_follows.map do |f|
+      User.find_by(id: f.followable_id)
+    end
   end
 
   def dashboard
     @user = current_user
+    @movie = Movie.new
+    set_movie_list params[:search] if params[:search]
+
     @follows = @user.all_follows.map do |f|
       User.find_by(id: f.followable_id)
     end
-
-    @movie = Movie.new
-    set_movie_list params[:search] if params[:search]
   end
+
 
   def follow
     current_user.follow(@user)
+    flash[:notice] = "now following #{@user.username}"
     redirect_to user_path(@user)
   end
 
   def unfollow
     current_user.stop_following(@user)
+    flash[:alert] = "unfollowed #{@user.username}"
     redirect_to user_path(@user)
   end
 

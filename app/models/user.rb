@@ -6,11 +6,12 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i[github], authentication_keys: %i[username]
 
   validates :username, uniqueness: true
-  validates :username, :password, presence: true
-  validates :password, length: {in: 6..24}
+  validates :username, :password, presence: true, on: :create
+  validates :password, length: {in: 6..24}, on: :create
 
   has_many :reviews
   has_many :movies, through: :reviews
+  has_one :settings
 
   acts_as_follower
   acts_as_followable

@@ -6,10 +6,11 @@ class ApplicationController < ActionController::Base
     @movie_list = []
     if !result['Error'] && !result.nil?
       @movie_list = result['Search'].compact.map do |m|
+        poster = (m['Poster'] == 'N/A' ? 'https://66.media.tumblr.com/5a186c216ce45dbc68730be8ced57a06/29fe15eaade870e6-a7/s400x600/1c5884a55da0a8d151061ab122fbd715e201f7b9.png' : m['Poster'])
         Movie.new(
           title: m['Title'],
           year: m['Year'],
-          poster: m['Poster'],
+          poster: poster,
           imdbid: m['imdbID']
         )
       end
@@ -21,7 +22,7 @@ class ApplicationController < ActionController::Base
   def set_movie(string)
     result = HTTParty.get("http://www.omdbapi.com/?i=#{string}&apikey=2cedcff3&").compact
     dir = result['Director'] == 'N/A' ? result['Writer'] : result['Director']
-    poster = result['Poster'] == 'N/A' ? 'app/assets/images/no-poster.png' : result['Poster']
+    poster = result['Poster'] == 'N/A' ? 'https://66.media.tumblr.com/5a186c216ce45dbc68730be8ced57a06/29fe15eaade870e6-a7/s400x600/1c5884a55da0a8d151061ab122fbd715e201f7b9.png' : result['Poster']
     @movie = Movie.new(
       title: result['Title'],
       year: result['Year'],
@@ -48,7 +49,9 @@ class ApplicationController < ActionController::Base
   protected
 
  def configure_permitted_parameters
-   devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+   devise_parameter_sanitizer.permit(:sign_up, keys: [:bio, :username])
+
+   devise_parameter_sanitizer.permit(:account_update, keys: [:bio, :username])
  end
 
 end
