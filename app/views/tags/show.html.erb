@@ -1,15 +1,17 @@
 <div class="tag-page">
-  <h1 class="tag-title">reviews tagged as <span class="green"><%=@tag.name%></span>.</h1>
-
-  <div class="tagged-results-container">
+  <div class="dash-review-container column">
     <% @tag.reviews.each do |review| %>
-    <a href="<%=review_path(review)%>" class="tagged-content">
-      <div class="result-cards small-card"><%= image_tag(review.movie.poster)%></div>
+    <a href="<%=review_path(review)%>" class="review">
+      <div class="result-cards small-card dash-image">
+        <%=image_tag(review.movie.poster)%>
+      </div>
       <div class="tagged-review">
-        <h1><%= review.movie.titleyear %></h1>
-        <p><%= review.render_content %></p>
+        <p><%= review.user.username %> reviewed:</p>
+        <h2><%= review.movie.titleyear %></h2>
+        <span><%= review.render_content %></span><br>
       </div>
       </a>
     <% end %>
   </div>
 </div>
+<h1 class="tag-title">reviews tagged as <span class="green"><%=@tag.name%></span>.</h1>

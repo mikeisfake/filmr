@@ -27,6 +27,7 @@ textarea {
   padding: 10px;
   margin: 10px 5px;
   background: var(--menu);
+  font-family: var(--monospace);
   border: 0px solid transparent;
   border-radius: 5px;
   color: var(--text);
@@ -38,12 +39,13 @@ input[type='password'] {
 }
 
 textarea {
-  width: 300px;
-	height: 300px;
+  width: 45vw;
+	height: calc(100vh - 350px);
   padding: 5px;
   resize: none;
   font-size: 1.2em;
   letter-spacing: 1px;
+  line-height: 2;
 }
 
 input[type="radio"] {

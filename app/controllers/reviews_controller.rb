@@ -25,8 +25,10 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    redirect_to root_path unless current_user == @review.user
-    flash[:alert] = "you don't have permission to do that."
+    if !@review.owns? current_user
+      redirect_to root_path
+      flash[:alert] = "you don't have permission to do that."
+    end
   end
 
   def update

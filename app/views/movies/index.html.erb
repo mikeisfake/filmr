@@ -1,8 +1,8 @@
 <h1>all movies you've watched.</h1>
 <div class="movie-list row">
   <% @movies.uniq.each do |movie| %>
-    <div class="result-cards small-card">
-      <%= link_to image_tag(movie.poster), movie_path(movie) %>
+    <div class="result-cards">
+      <%= link_to image_tag(movie.poster), movie_path(movie), data_value: movie.titleyear %>
     </div>
   <% end %>
 </div>

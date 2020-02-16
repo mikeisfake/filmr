@@ -9,14 +9,14 @@
   <h2>recently reviewed movies.</h2>
   <div class="row">
     <% @movies.last(5).reverse.each do |m| %>
-      <p class="result-cards"><%= link_to image_tag(m.poster), movie_path(m) %></p>
+      <p class="result-cards"><%= link_to image_tag(m.poster), movie_path(m), data_value: m.titleyear %></p>
     <% end %>
   </div>
 
   <h2>random reviews.</h2>
   <div class="row">
     <% @movies.sample(5).each do |m| %>
-      <p class="result-cards"><%= link_to image_tag(m.poster), movie_path(m) %></p>
+      <p class="result-cards"><%= link_to image_tag(m.poster), movie_path(m), data_value: m.titleyear %></p>
     <% end %>
   </div>
 </section>

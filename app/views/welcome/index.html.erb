@@ -1,8 +1,10 @@
-<div class="row home-page animated fadeInDown">
-  <h1>welcome to FILM</h1><span class="green letter animated bounce delay-3s infinite">r</span>
-</div>
+<div class="column col-left">
+  <div class="row home-page animated fadeInDown">
+    <h1>welcome to FILM</h1><span class="green letter">r</span>
+  </div>
 
   <div class="row animated fadeInUp">
     <%= button_to "log in", new_user_session_path, method: :get, class: "button" %>
     <%= button_to "sign up", new_user_registration_path, method: :get, class: "button" %>
   </div>
+</div>

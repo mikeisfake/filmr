@@ -17,15 +17,18 @@
  *= require animate
  */
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Source+Sans+Pro:300,600&display=swap');
 
 :root {
  --accent: #3fa5b0;
  --alert: #d1473d;
  --menu: #111;
  --text: #eee;
+ --text-accent: #808080;
  --background: #000;
- --hover: rgba(0,0,0, .3);
+ --hover: rgba(0,0,0, .6);
+ --sans-serif: 'Source Sans Pro', sans-serif;
+ --monospace: 'IBM Plex Mono', monospace;
 }
 
 @keyframes click {
@@ -49,35 +52,50 @@ transition: .3s ease;
 body {
  background: var(--background);
  color: var(--text);
- font-family: 'Montserrat', sans-serif;
+ font-family: var(--monospace);
  font-size: 12px;
  line-height: 1.7;
+ overflow: auto;
+ margin: 0 auto;
 }
 
 .container-all {
  display: flex;
  flex-direction: column;
  align-items: center;
- padding-top: 25vh;
+ justify-content: center;
+ flex-wrap: nowrap;
  height: 100%;
+ overflow: auto;
  &.open {
    filter: blur(1em);
-   margin-right: 350px;
+   margin-right: 100px;
  }
 }
 
+h1,
+h2,
+h3 {
+  letter-spacing: 2px;
+}
+
 h1 {
- font-size: 1.7em;
- letter-spacing: 2px;
+ font-size: 2.3em;
+ font-weight: 400;
+ text-transform: uppercase;
+ font-family: var(--sans-serif);
 }
 
 h2 {
- font-size: 1.5em;
- letter-spacing: 2px;
+ font-family: var(--sans-serif);
+ font-weight: 400;
+ text-transform: uppercase;
+ font-size: 2em;
 }
 
 h3 {
  font-size: 1.2em;
+ color: var(--text-accent);
 }
 
 img {

@@ -1,19 +1,17 @@
 .tag-page {
-  height: 100vh;
-  width: 100vw;
   display: flex;
   flex-direction: column;
-  margin-top: -25vh;
-  padding: 20px;
+  padding-top: 120px;
   overflow: auto;
 }
 
 .tag-title {
   padding: 30px;
-  background: var(--background);
+  background: var(--hover);
   width: 100%;
   position: fixed;
-  top: 0
+  top: 0;
+  margin-left: 30px;
 }
 
 .tagged-results-container {
@@ -38,12 +36,7 @@
 
 .tagged-review {
   flex-direction: row;
-  margin-left: 20px;
-  > h1 {
-    font-size: 1.5em;
-    letter-spacing: 0;
-  }
-  > p {
-    max-width: calc(100vw - 250px)
+  > h2 {
+    font-size: 1.08em
   }
 }

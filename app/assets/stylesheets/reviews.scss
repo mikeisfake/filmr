@@ -1,0 +1,32 @@
+.tag {
+  background: var(--menu);
+  padding: 8px;
+  margin: 3px;
+  line-height: 250%;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.review {
+  margin: 15px 0;
+  padding: 10px;
+  padding-left: 20px;
+  font-family: var(--sans-serif);
+  font-size: 1.3em;
+  border-left: 5px solid var(--accent);
+  background: var(--menu);
+  max-height: 150px;
+  overflow: auto;
+   h2 {
+    font-size: 1.1em
+  }
+}
+
+a.review:hover {
+  color: var(--text);
+}
+
+.review-show {
+  max-height: calc(100vh - 250px);
+  overflow: auto;
+}

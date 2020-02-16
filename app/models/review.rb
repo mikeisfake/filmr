@@ -13,6 +13,10 @@ class Review < ApplicationRecord
     self.content.gsub("\r\n\r", '<br>').gsub("\r\n", '<br>').gsub("\n", '<br>').html_safe
   end
 
+  def render_date
+    self.created_at.strftime("%A, %b %d")
+  end
+
   def tag_name=(names)
     tags = names.split(',').map do |n|
       Tag.find_or_create_by(name: n)

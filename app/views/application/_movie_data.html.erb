@@ -1,7 +1,7 @@
 <div class="animated fadeInLeft">
-  <%= link_to image_tag(@movie.poster), movie_path(@movie) %>
+  <%= link_to image_tag(@movie.poster), movie_path(@movie), class: "poster-link" %>
   <h2><%= @movie.titleyear %></h2>
   <h3>dir. <%= @movie.director %></h3><br>
-  <p><%= @movie.genre %></p><br>
+  <p><%= @movie.genre.upcase %></p><br>
   <p><%= @movie.plot %></p>
 </div>

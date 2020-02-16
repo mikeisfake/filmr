@@ -1,19 +1,6 @@
 <section class="row">
   <div class="column col-left">
-    <%= render 'movie_data' %>
-  </div>
-
-  <div class="column col-right animated fadeInRight">
-    <p class="review-show"><%= @review.render_content %></p>
-    posted on: <%= @review.date %><br>
-    <% if !@review.tags.empty? %>
-      <span>
-        <% @review.tags.uniq.each do |tag| %>
-          <%= link_to tag.name, tag_path(tag), class: "tag" unless tag.name.empty? %>
-        <% end %>
-      </span>
-    <% end %>
-  <br><br>
+    <%= render 'movie_data' %><br>
     <div class="row">
       <% if @review.owns? current_user %>
         <%= button_to review_path(@review), method: :delete, class: "button delete-button" do %>
@@ -25,6 +12,20 @@
       <% end %>
       <%= render 'home_button' %>
     </div>
+  </div>
+
+  <div class="column col-right animated fadeInRight">
+    <h2><%=@review.user.username%>s review of <%=@review.movie.title%>.</h2>
+    <p class="review review-show"><%= @review.render_content %></p>
+    <p>posted on: <%= @review.render_date %></p><br>
+    <% if @review.tags.present? %>
+      <span>filed under:
+        <% @review.tags.uniq.each do |tag| %>
+          <%= link_to tag.name, tag_path(tag), class: "tag" unless tag.name.empty? %>
+        <% end %>
+      </span>
+    <% end %>
+  <br><br>
   </div>
 
 </section>
