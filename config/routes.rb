@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   resources :movies do
     resources :reviews
   end
-  resources :users, only: [:show], path: 'profile' do
-    resources :settings, only: [:edit, :update]
+  resources :users, only: :show, path: 'profile' do
     resources :reviews, only: [:index]
     member do
       get :follow
@@ -14,7 +13,6 @@ Rails.application.routes.draw do
     end
   end
   resources :reviews
-  resources :follows, only: [:index], path: 'following'
   resources :tags, only: [:show]
 
   get '/dashboard', to: 'users#dashboard'

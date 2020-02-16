@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :username, :password, presence: true, on: :create
   validates :password, length: {in: 6..24}, on: :create
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :movies, through: :reviews
   has_one :settings
 
