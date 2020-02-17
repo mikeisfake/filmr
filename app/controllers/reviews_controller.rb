@@ -18,11 +18,9 @@ class ReviewsController < ApplicationController
     movie = Movie.find_by(id: params[:review][:movie_id])
     review = Review.new(review_params)
     if review.save
-      flash[:notice] = "what a witty review"
-      redirect_to review_path(review)
+      redirect_to review_path(review), notice: "what a witty review #{current_user.username}"
     else
-      flash[:alert] = "that didn't work out"
-      redirect_to new_movie_review_path
+      redirect_to new_movie_review_path(movie), alert: "that didn't work out"
     end
   end
 
@@ -31,21 +29,18 @@ class ReviewsController < ApplicationController
 
   def edit
     if !@review.owns? current_user
-      redirect_to root_path
-      flash[:alert] = "you don't have permission to do that."
+      redirect_to root_path, alert: "you don't have permission to do that."
     end
   end
 
   def update
     @review.update(review_params)
-    flash[:notice] = "nice update"
-    redirect_to @review
+    redirect_to @review, notice: "finished polishing up your review of #{@review.movie.title}"
   end
 
   def destroy
     @review.destroy
-    flash[:alert] = "wooosh that review is gone forever."
-    redirect_to root_path
+    redirect_to root_path, alert: "your review of #{@review.movie.title} is gonve forever."
   end
 
   private

@@ -1,5 +1,5 @@
-<br><h2>search results.</h2>
-<%= form_with model: @movie, class: "movie-list", id: "movie-list" do |f| %>
+<h3>search results.</h3>
+<%= form_with url: movies_path, class: "search-results", id: "movie-list" do |f| %>
 <div class="row">
   <%= f.collection_radio_buttons(:imdbid, @movie_list, :imdbid, :render_poster, id: :titleyear) do |b| %>
     <%= b.radio_button(value: b.object.titleyear) + b.label(class: "result-cards", data_value: b.object.titleyear) %>

@@ -7,7 +7,9 @@
   <% @follows.each do |user| %>
   <div class="user-card">
     <%= link_to user.username, user_path(user), class: "username" %><br>
-    <p><%= user.bio %></p>
+    <% if user.tagline %>
+    <p class="tagline"><%= user.tagline %></p>
+    <% end %>
   </div>
   <% end %>
 </div>

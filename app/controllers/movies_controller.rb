@@ -1,5 +1,8 @@
 class MoviesController < ApplicationController
   before_action :authenticate_user!
+  before_action only: [:index, :show] do
+    set_movie_list(params[:search])
+  end
 
   def index
     @movies = Movie.user_movies(current_user)
@@ -9,13 +12,11 @@ class MoviesController < ApplicationController
     @movie = Movie.find_by(id: params[:id])
   end
 
-
   def new
-    @movie = Movie.new
   end
 
   def create
-    find_or_create_movie params[:movie][:imdbid] if params[:movie][:imdbid]
+    find_or_create_movie params[:imdbid] if params[:imdbid]
   end
 
   private

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_16_134229) do
+ActiveRecord::Schema.define(version: 2020_02_17_050428) do
 
   create_table "follows", force: :cascade do |t|
     t.string "followable_type", null: false
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 2020_02_16_134229) do
     t.index ["followable_type", "followable_id"], name: "index_follows_on_followable_type_and_followable_id"
     t.index ["follower_id", "follower_type"], name: "fk_follows"
     t.index ["follower_type", "follower_id"], name: "index_follows_on_follower_type_and_follower_id"
+  end
+
+  create_table "movie_watchlists", force: :cascade do |t|
+    t.integer "movie_id"
+    t.integer "watchlist_id"
   end
 
   create_table "movies", force: :cascade do |t|
@@ -74,7 +79,14 @@ ActiveRecord::Schema.define(version: 2020_02_16_134229) do
     t.string "provider"
     t.string "uid"
     t.text "bio"
+    t.string "tagline"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "watchlists", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

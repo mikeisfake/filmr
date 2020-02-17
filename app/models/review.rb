@@ -14,7 +14,7 @@ class Review < ApplicationRecord
   end
 
   def render_date
-    self.created_at.strftime("%A, %b %d")
+    self.created_at.strftime("%d.%m.%Y.%H:%M %p")
   end
 
   def tag_name=(names)

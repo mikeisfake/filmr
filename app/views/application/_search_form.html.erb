@@ -1,11 +1,13 @@
-<%= form_tag this_page, method: :get do %>
+<div class="search_form">
+<%= form_tag  do %>
   <%= text_field_tag('search', nil, placeholder: 'search for a movie') %>
-  <%= hidden_field_tag :id, current_user.id %>
+  <%= hidden_field_tag :_method, :get %>
 
   <%= button_tag type: 'submit', class: "button" do %>
     <i class="fas fa-search"></i>
   <% end %>
 <% end %>
 <% if params[:search] %>
-  <%= render 'movie_list' %>
+<%= render 'search_results' %>
 <% end %>
+</div>

@@ -1,5 +1,6 @@
 <section class="row">
-  <div class="column col-left movie-data">
+  <div class="column col-left">
+  <div class="movie-data">
     <%= render 'movie_data' %><br>
     <div class="row">
       <% if @review.owns? current_user %>
@@ -12,6 +13,7 @@
       <% end %>
       <%= render 'home_button' %>
     </div>
+    </div>
   </div>
 
   <div class="column col-right">
@@ -20,7 +22,7 @@
     <p><i class="far fa-calendar"></i> <%= @review.render_date %></p><br>
     <% if @review.tags.present? %>
       <span>
-        <% @review.tags.each do |tag| %>
+        <% @review.tags.uniq.each do |tag| %>
           <%= link_to tag_path(tag), class: "tag" do %>
           <i class="fas fa-circle fa-xs"></i>
           <span><%= tag.name %></span>

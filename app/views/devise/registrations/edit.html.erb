@@ -1,10 +1,11 @@
 <div class="column col-left registration">
   <div class="registration-form">
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<br>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
       <%= f.text_field :username, autofocus: true, placeholder: "username" %><br>
+      <%= f.text_field :tagline, placeholder: "tagline" %><br>
       <%= f.text_area :bio, placeholder: "a little about you", class: "bio" %><br>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

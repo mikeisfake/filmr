@@ -16,12 +16,13 @@
     <%= render 'blocker' %>
     <%= render 'flash' %>
     <% if user_signed_in? %>
+      <%= render "search_form" %>
       <%= render 'menu_button' %>
       <%= render 'main_menu' %>
     <% end %>
+    <%= render 'logo' %>
 
     <div class="container-all">
-      <%= render 'logo' %>
       <%= yield %>
     </div>
 
@@ -31,7 +32,7 @@
       $("#movie-list").submit();
     });
 
-    $(".alert, .notice").addClass("slideInDown").delay(3000).queue(function () {
+    $(".flash, .flash-container").addClass("slideInDown").delay(3000).queue(function () {
       $(this).addClass("slideOutUp").dequeue();
     });
 

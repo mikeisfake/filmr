@@ -1,15 +1,10 @@
 <div id="menu">
     <div class="menu-list">
-      <h2><%= current_user.username %></h2>
+      <h1><%= link_to current_user.username, user_path(current_user), class: "username" %></h1>
 
       <%= link_to movies_path do %>
       <i class="fas fa-video"></i>
       <span>movies</span>
-      <% end %>
-
-      <%= link_to user_path(current_user) do %>
-      <i class="far fa-meh-blank"></i>
-      <span>profile</span>
       <% end %>
 
       <%= link_to dashboard_path do %>

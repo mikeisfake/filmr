@@ -1,3 +1,5 @@
+@import "variables";
+
 .dashboard {
   align-items: center;
   padding-top: 100px;
@@ -34,7 +36,7 @@
   padding: 20px;
   width: 760px;
   border-radius: 10px;
-  border: 1px dashed var(--accent);
+  border: 1px dashed $accent;
 }
 
 textarea.bio {
@@ -44,19 +46,32 @@ textarea.bio {
 
 .username {
   display: inline-block;
-  padding: 5px 10px;
-  border: 1px solid var(--text-accent);
+  padding: 5px 10px 5px 0;
+  border: 1px solid $text-accent;
   border-radius: 5px;
   font-size: .9em;
   letter-spacing: 3px;
-  font-family: var(--sans-serif);
+  font-family: $sans-serif;
   &::before {
     font-family: "Font Awesome 5 Free";
     content: "\f5a4";
-    color: var(--alt-accent);
-    float: left;
-    margin-right: 10px
+    color: $text;
+    background: $alt-accent;
+    padding:9px 4px 9px 9px;
+    margin-right: 10px;
+    border: 1px solid $text-accent;
+    border-radius: 5px 0 0 5px;
   }
+}
+
+.tagline {
+  display: inline-block;
+  font-family: $sans-serif;
+  font-size: .8rem;
+  letter-spacing: 1px;
+  border-left: 5px solid $menu-item;
+  background: $menu;
+  padding: 3px 10px;
 }
 
 .follow-container {
@@ -73,9 +88,9 @@ textarea.bio {
 
 .user-card {
   width: 222px;
-  height: 150px;
+  height: 70px;
   overflow:hidden;
-  border: 1px dashed var(--menu-item);
+  border: 1px dashed $menu-item;
   border-radius: 8px;
   padding: 10px;
   margin: 10px;
@@ -93,7 +108,7 @@ textarea.bio {
 }
 
 .registration-form {
-  background: var(--menu-item);
+  background: $menu-item;
   padding: 30px;
   border-radius: 10px;
 }

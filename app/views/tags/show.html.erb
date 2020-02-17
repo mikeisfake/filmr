@@ -1,4 +1,5 @@
 <div class="tag-page">
+  <h1 class="tag-title">reviews tagged as <span class="accent"><%=@tag.name%></span>.</h1>
   <div class="dash-review-container column">
     <% @tag.reviews.each do |review| %>
     <%= link_to review_path(review), class: "review" do %>
@@ -13,5 +14,4 @@
       <% end %>
     <% end %>
   </div>
-  <h1 class="tag-title">reviews tagged as <span class="accent"><%=@tag.name%></span>.</h1>
 </div>

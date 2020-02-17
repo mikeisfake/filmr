@@ -1,14 +1,16 @@
+@import "variables";
+
 .button {
   padding: 10px;
-  background: var(--menu);
-  color: var(--text);
+  background: $menu;
+  color: $text;
   margin-right: 8px;
   border-radius: 5px;
   border: 0px solid transparent;
   text-transform: lowercase;
   &:hover {
-    background: var(--accent);
-    color: var(--text);
+    background: $accent;
+    color: $text;
   }
   &:active {
     animation: click;
@@ -19,8 +21,8 @@ input:focus,
 textarea:focus,
 button:focus {
   outline: 0px solid transparent;
-  box-shadow: 0 0 0 1px var(--accent);
-  color: var(--text)
+  box-shadow: 0 0 0 1px $accent;
+  color: $text
 }
 
 input[type='text'],
@@ -28,11 +30,11 @@ input[type='password'],
 textarea {
   padding: 10px;
   margin: 10px 5px;
-  background: var(--menu);
-  font-family: var(--monospace);
+  background: $menu;
+  font-family: $monospace;
   border: 0px solid transparent;
   border-radius: 5px;
-  color: var(--text);
+  color: $text;
 }
 
 input[type='text'],
@@ -54,16 +56,16 @@ input[type="radio"] {
 }
 
 .red{
-  color: var(--alert)
+  color: $alert;
 }
 
 .accent {
-  color: var(--accent)
+  color: $accent;
 }
 
 .letter {
   text-transform: lowercase;
-  font-family: var(--sans-serif);
+  font-family: $sans-serif;
 }
 
 .flash-container {
@@ -71,18 +73,18 @@ input[type="radio"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 15px;
 }
 
 .flash {
-  padding: 15px;
+  margin-top: 5px;
+  padding: 8px;
   border-radius: 5px;
-  box-shadow: var(--shadow);
+  box-shadow: $shadow;
   &.notice {
-    background: var(--notice);
+    background: $notice;
   }
   &.alert {
-    background: var(--alert);
+    background: $alert;
   }
 }
 
@@ -92,9 +94,9 @@ input[type="radio"] {
   left: 10px;
   padding: 10px;
   font-size: 2em;
-  color: var(--accent);
-  background: var(--menu);
+  color: $accent;
+  background: $menu;
   border-radius: 8px;
-  font-family: var(--sans-serif);
+  font-family: $sans-serif;
   font-weight: 600;
 }

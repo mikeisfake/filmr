@@ -1,19 +1,20 @@
 <section class="row">
-  <section class="column col-left movie-data">
+  <section class="column col-left">
+    <div class="movie-data">
     <%= render 'movie_data' %>
     <br>
     <div class="row">
-      <%= button_to new_movie_review_path(@movie), method: :get, class: "button" do %>
+      <%= button_to new_movie_review_path(@movie), method: :get, class: "button success-button" do %>
         <i class="far fa-sticky-note"></i>&nbsp
         <span>review this movie</span>
       <% end %>
       <%= render "home_button" %>
     </div>
-
+    </div>
   </section>
 
   <section class="column col-right">
-    <% if @movie.reviews.present? %><h2>reviews for <%=@movie.title %>:</h2><br><% end %>
+    <% if @movie.reviews.present? %><h3>reviews:</h3><br><% end %>
     <% @movie.reviews.last(5).each do |review| %>
     <span><%= link_to review.user.username, user_path(review.user), class: "username" %></span>
     <%= link_to review.render_content, review_path(review), class: "review"%>

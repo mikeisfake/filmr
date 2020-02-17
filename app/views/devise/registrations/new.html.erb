@@ -1,11 +1,12 @@
 <div class="column col-left registration">
   <div class="registration-form">
   <h2>Sign up.</h2>
-
+<br>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
       <%= f.text_field :username, autofocus: true, placeholder: "username" %><br>
+      <%= f.text_field :tagline, placeholder: "tagline" %><br>
       <%= f.label "optional, tell us a bit about yourself." %>
       <%= f.text_area :bio, placeholder: "a little about you", class: "bio" %><br>
       <%= f.password_field :password, autocomplete: "new-password", placeholder: "password" %><br>

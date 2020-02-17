@@ -6,12 +6,15 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i[github], authentication_keys: %i[username]
 
   validates :username, uniqueness: true
-  validates :username, :password, presence: true, on: :create
+  validates :username, presence: true
+  validates :password, presence: true, on: :create
   validates :password, length: {in: 6..24}, on: :create
+  validates :bio, length: {maximum: 500}
+  validates :tagline, length: {maximum: 30}
 
   has_many :reviews, dependent: :destroy
   has_many :movies, through: :reviews
-  has_one :settings
+  has_one :watchlist
 
   acts_as_follower
   acts_as_followable
@@ -27,4 +30,12 @@ class User < ApplicationRecord
   def self.recent_movies
     joins(:movies).sort_by{|t| - t.created_at.to_i}.first(5)
   end
+
+  def render_bio
+    self.bio.gsub("\r\n\r", '<br>').gsub("\r\n", '<br>').gsub("\n", '<br>').html_safe
+  end
+
+
+
+
 end

@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, except: :dashboard
+  before_action only: [:index, :show, :dashboard] do
+    set_movie_list(params[:search])
+  end
 
   def show
     @movies = Movie.user_movies(@user)
-    @movie = Movie.new
-    set_movie_list params[:search] if params[:search]
 
     @follows = @user.all_follows.map do |f|
       User.find_by(id: f.followable_id)
@@ -14,9 +15,6 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
-    @movie = Movie.new
-    set_movie_list params[:search] if params[:search]
-
     @follows = @user.all_follows.map do |f|
       User.find_by(id: f.followable_id)
     end
@@ -25,14 +23,12 @@ class UsersController < ApplicationController
 
   def follow
     current_user.follow(@user)
-    flash[:notice] = "now following #{@user.username}"
-    redirect_to user_path(@user)
+    redirect_to user_path(@user), notice: "now following #{@user.username}"
   end
 
   def unfollow
     current_user.stop_following(@user)
-    flash[:alert] = "unfollowed #{@user.username}"
-    redirect_to user_path(@user)
+    redirect_to user_path(@user), alert: "unfollowed #{@user.username}"
   end
 
 

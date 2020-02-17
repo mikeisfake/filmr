@@ -1,6 +1,7 @@
 class Movie < ApplicationRecord
   has_many :reviews
   has_many :users, through: :reviews
+  has_many :watchlists, through: :movie_watchlists
 
   validates :imdbid, presence: true
 
@@ -21,5 +22,13 @@ class Movie < ApplicationRecord
   def genres
     self.genre.split(",")
   end
+
+  def review_count
+    self.reviews.count
+  end
+
+  # def self.new_this_week
+  #   order(created_at: :desc).where(created_at: (Time.now.midnight - 1.week)..Time.now.midnight).joins(:reviews).where("reviews > ?", 0)
+  # end
 
 end

@@ -19,21 +19,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Source+Sans+Pro:300,600&display=swap');
 
-:root {
- --accent: #D17E12;
- --alert: #d1473d;
- --alt-accent: #4D7794;
- --notice: #69B09A;
- --menu: #1e1f28;
- --menu-item: #2D2F39;
- --text: #eee;
- --text-accent: #808080;
- --background: #181921;
- --hover: rgba(24,25,33, .9);
- --sans-serif: 'Source Sans Pro', sans-serif;
- --monospace: 'IBM Plex Mono', monospace;
- --shadow: 0 0 15px rgba(0,0,0,.5);
-}
+@import "variables";
 
 
 @keyframes click {
@@ -51,13 +37,17 @@
 }
 
 * {
- transition: .3s ease;
+  transition: .3s ease;
 }
 
 body {
- background: var(--background);
- color: var(--text);
- font-family: var(--monospace);
+  background:
+ 		linear-gradient(90deg, $background ($dot-space - $dot-size), transparent 1%) center,
+ 		linear-gradient($background ($dot-space - $dot-size), transparent 1%) center,
+ 		$dot-color;
+ background-size: $dot-space $dot-space;
+ color: $text;
+ font-family: $monospace;
  font-size: 12px;
  line-height: 1.7;
  overflow: auto;
@@ -82,7 +72,7 @@ h1,
 h2,
 h3 {
   letter-spacing: 2px;
-  font-family: var(--sans-serif);
+  font-family: $sans-serif;
 }
 
 h1 {
@@ -98,15 +88,15 @@ h2 {
 }
 
 h3 {
- font-size: 1.2em;
- color: var(--text-accent);
+ font-size: 1.5em;
  font-weight: 400;
 }
 
 hr {
-  width: 30%;
+  width: 20%;
   margin-top: 20px;
-  border: 1px dashed var(--accent);
+  border: 4px solid $alt-accent;
+  margin-right: 0px;
 }
 
 img {
@@ -115,15 +105,15 @@ img {
 
 a {
  text-decoration: none;
- color: var(--text);
+ color: $text;
 }
 
 a:visited {
- color: var(--text);
+ color: $text;
 }
 
 a:hover {
- color: var(--accent)
+ color: $accent;
 }
 
 .column {
@@ -140,12 +130,12 @@ a:hover {
 }
 
 a.delete-button:hover {
-  background: var(--alert)
+  background: $alert;
 }
 .delete-button:hover {
-  background: var(--alert)
+  background: $alert;
 }
 
 .success-button:hover {
-  background: var(--notice);
+  background: $notice;
 }

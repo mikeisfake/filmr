@@ -1,3 +1,5 @@
+@import "variables";
+
 #menu {
   position: fixed;
   top: 0;
@@ -7,7 +9,7 @@
   height: 100vh;
   margin-left: 150vw;
   z-index: 2;
-  background: var(--menu);
+  background: $menu;
   &.open {
     margin-left: calc(100vw - 350px);
   }
@@ -26,38 +28,41 @@
 
 .menu-list {
   margin-top: 60px;
-  & h2 {
-    padding-left: 20px;
+  & h1 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    a {
+      display: inline;
+      padding: 8px 8px 7px 0px;
+      &:hover {
+        color: $alt-accent;
+      }
+    }
   }
 }
 .menu-list a {
   display: block;
   margin: 10px;
   font-size: 1.2em;
-  padding: 10px;
-  padding-left: 20px;
   border-radius: 5px;
-  background: var(--menu-item);
+  background: $menu;
   & .fas,
   & .far,
   & .fa {
-    background: var(--menu);
-    padding: 10px;
-    border-radius: 5px;
+    padding: 13px;
+    border-radius: 5px 0 0 5px;
+    color: $text-accent;
   }
   &:hover {
-    color: var(--text);
-    background: var(--hover);
-    box-shadow: var(--shadow);
-  }
-  &:active {
-    animation: click;
+    color: $text;
+    background: $menu-item;
+    box-shadow: $shadow;
   }
   &:hover .fas,
   &:hover .far {
-    color: var(--accent);
+    color: $accent;
   }
   &:hover .fa-times-circle {
-    color: var(--alert);
+    color: $alert;
   }
 }
