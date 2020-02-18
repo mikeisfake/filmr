@@ -15,7 +15,7 @@ class Movie < ApplicationRecord
 
   def render_poster
     img = self.poster
-    str = "<img src='"+ img +"'>"
+    str = "<img src='#{img}'>"
     str.html_safe
   end
 
@@ -27,8 +27,12 @@ class Movie < ApplicationRecord
     self.reviews.count
   end
 
-  # def self.new_this_week
-  #   order(created_at: :desc).where(created_at: (Time.now.midnight - 1.week)..Time.now.midnight).joins(:reviews).where("reviews > ?", 0)
-  # end
+  def self.is_reviewed?
+    joins(:reviews).group(:movie_id).having("COUNT(reviews.movie_id) > 0")
+  end
+
+  def self.popular_this_week
+    order(created_at: :desc).where(created_at: (Time.now.midnight - 1.week)..Time.now.midnight).order(:review_count)
+  end
 
 end

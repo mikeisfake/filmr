@@ -1,10 +1,10 @@
 <% if @user == current_user %>
-<h2>people you follow.</h2>
+<h2>people who follow you.</h2>
 <% else %>
-<h2>people <%=@user.username%> follows.</h2>
+<h2>people following <%=@user.username%>.</h2>
 <% end %>
 <div class="follow-container">
-  <% @follows.each do |user| %>
+  <% @followers.each do |user| %>
   <div class="user-card">
     <%= link_to user.username, user_path(user), class: "username" %><br>
     <% if user.tagline %>

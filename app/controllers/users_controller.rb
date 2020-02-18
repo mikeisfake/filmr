@@ -1,23 +1,16 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, except: :dashboard
-  before_action only: [:index, :show, :dashboard] do
+  before_action :set_user
+  before_action :set_follows
+  before_action only: [:show, :dashboard] do
     set_movie_list(params[:search])
   end
 
   def show
     @movies = Movie.user_movies(@user)
-
-    @follows = @user.all_follows.map do |f|
-      User.find_by(id: f.followable_id)
-    end
   end
 
   def dashboard
-    @user = current_user
-    @follows = @user.all_follows.map do |f|
-      User.find_by(id: f.followable_id)
-    end
   end
 
 
@@ -31,11 +24,26 @@ class UsersController < ApplicationController
     redirect_to user_path(@user), alert: "unfollowed #{@user.username}"
   end
 
+  def followers
+  end
+
+  def following
+  end
+
 
   private
 
   def set_user
-    @user = User.find(params[:id])
+    if params[:id]
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
+  end
+
+  def set_follows
+    @following = @user.all_following
+    @followers = @user.followers
   end
 
 end

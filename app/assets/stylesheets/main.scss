@@ -73,6 +73,8 @@ input[type="radio"] {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 3;
+  position: absolute;
 }
 
 .flash {
@@ -90,6 +92,7 @@ input[type="radio"] {
 
 .logo {
   position: fixed;
+  z-index: 3;
   top: 10px;
   left: 10px;
   padding: 10px;

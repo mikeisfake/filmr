@@ -1,5 +1,4 @@
-<%= render "search_form" %>
-<h1>all movies you've watched.</h1>
+<h2>all movies you've watched.</h2>
 <div class="movie-list row">
   <% @movies.uniq.each do |movie| %>
     <div class="result-cards">
@@ -7,4 +6,3 @@
     </div>
   <% end %>
 </div>
-<%= button_to "search more movies", user_path(current_user), class: "button" %>

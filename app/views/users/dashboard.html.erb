@@ -1,15 +1,15 @@
 <section class="dashboard">
 <h2>reviews from people you follow.</h2>
-<%if @follows.empty? %> <h3>you're not following anybody yet.</h3> <% end %>
+<%if @following.empty? %> <h3>you're not following anybody yet.</h3> <% end %>
 
 <div class="dash-review-container">
-  <% all_follow_reviews(@follows, 25).each do |review|%>
-    <small><i class="far fa-calendar accent"></i> <%=review.render_date %></small>
+  <% all_follow_reviews(@following, 25).each do |review|%>
+    <small class="dash-date"><%=review.render_date %> &nbsp<i class="far fa-calendar accent"></i></small>
     <div class="review">
       <div class="dash-image">
         <%= link_to image_tag(review.movie.poster), review_path(review) %>
       </div>
-      <span><%= link_to review.user.username, user_path(review.user), class: "username" %> </span><br>
+      <%= link_to review.user.username, user_path(review.user), class: "username" %> <br>
       <h2><%= link_to review.movie.titleyear, movie_path(review.movie) %></h2>
       <span><%= review.render_content %></span><br>
     </div>

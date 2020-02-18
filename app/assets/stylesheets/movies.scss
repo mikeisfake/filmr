@@ -1,8 +1,10 @@
 @import "variables";
 
 .search_form {
-  position: relative;
-  background: $hover;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: $menu-item;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -11,10 +13,11 @@
 }
 
 .search-results {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 240px;
+  padding: 15px;
 }
 
 .movie-list {
@@ -93,7 +96,6 @@ label.result-cards:hover::before,
     width: 300px;
     height: 440px;
   }
-  & h1,
   & h2 {
     text-align: right;
     padding: 10px;

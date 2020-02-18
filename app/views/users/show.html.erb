@@ -1,7 +1,10 @@
 <div class="profile-container">
   <div class="profile-info">
     <h1 class="username"> <%= @user.username %></h1>
-    <span class="button"> followers:  <%= @user.followers_count %> </span> | <span class="button">following: <%= @user.follow_count%> </span><br><br>
+    <%= link_to "followers: #{@user.followers_count}", followers_user_path, class: "button" %> |
+    <%= link_to "following: #{@user.follow_count}", following_user_path, class: "button" %>
+
+    <br><br>
     <% if @user.tagline %>
       <p class="tagline"><%= @user.tagline %></p><br><br>
     <% end %>
@@ -12,9 +15,6 @@
   <% if @user.reviews.present? %>
     <%= render "recent_reviews" %>
     <br><br>
-  <% end %>
-  <% if @follows.present? %>
-    <%= render 'follows' %>
   <% end %>
 
 </div>
