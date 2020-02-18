@@ -69,21 +69,20 @@ input[type="radio"] {
 }
 
 .flash-container {
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3;
-  position: absolute;
+
 }
 
 .flash {
-  margin-top: 5px;
-  padding: 8px;
+  z-index: 3;
+  position: absolute;
+  margin-top: 80px;
+  margin-left: 20px;
+  padding: 12px;
   border-radius: 5px;
   box-shadow: $shadow;
   &.notice {
     background: $notice;
+    color: $background;
   }
   &.alert {
     background: $alert;

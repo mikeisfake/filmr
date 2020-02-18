@@ -32,8 +32,8 @@
       $("#movie-list").submit();
     });
 
-    $(".flash, .flash-container").addClass("slideInDown").delay(3000).queue(function () {
-      $(this).addClass("slideOutUp").dequeue();
+    $(".flash").addClass("animated slideInLeft").delay(3000).queue(function () {
+      $(this).addClass("slideOutLeft").dequeue();
     });
 
     $( "#btn, #blocker" ).click(function() {
