@@ -30,12 +30,26 @@
   border-radius: 0 5px 5px 0;
   background: $menu;
   max-height: 150px;
-  overflow: auto;
+  width: 800px;
+  overflow-y: auto;
+  word-wrap: break-word;
    h2 {
     font-size: 1.1em;
   }
   &:hover {
     border-left: 5px solid $accent;
+  }
+}
+
+.more-button {
+  background: $menu-item;
+  position: absolute;
+  margin-left: 760px;
+  padding: 2px 5px;
+  border-radius: 5px;
+  &:hover {
+    color: $text;
+    background: $accent
   }
 }
 

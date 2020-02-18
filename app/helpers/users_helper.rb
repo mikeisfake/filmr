@@ -6,4 +6,8 @@ module UsersHelper
     end.flatten.sample(num)
   end
 
+  def mutuals?(user)
+    user.following?(current_user) && user.followed_by?(current_user)
+  end
+
 end

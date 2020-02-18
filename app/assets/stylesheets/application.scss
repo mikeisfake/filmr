@@ -63,7 +63,7 @@ body {
  height: 100%;
  overflow: auto;
  &.open {
-   filter: blur(1em);
+   filter: blur(.5em);
    margin-right: 100px;
  }
 }

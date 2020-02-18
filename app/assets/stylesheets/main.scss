@@ -43,8 +43,8 @@ input[type='password'] {
 }
 
 textarea {
-  width: 45vw;
-	height: calc(100vh - 350px);
+  width: 800px;
+	height: calc(100vh - 500px);
   padding: 5px;
   resize: none;
   letter-spacing: 1px;
@@ -90,16 +90,14 @@ input[type="radio"] {
   }
 }
 
-.logo {
+.logo a {
   position: fixed;
   z-index: 3;
-  top: 10px;
+  top: 7px;
   left: 10px;
-  padding: 10px;
-  font-size: 2em;
-  color: $accent;
+  padding: 5px 10px;
+  font-size: 1.5em;
   background: $menu;
   border-radius: 8px;
   font-family: $sans-serif;
-  font-weight: 600;
 }

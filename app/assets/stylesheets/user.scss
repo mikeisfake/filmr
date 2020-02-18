@@ -48,7 +48,7 @@
 
 .profile-info {
   padding: 20px;
-  width: 760px;
+  width: 800px;
   border-radius: 10px;
   border: 1px dashed $accent;
 }
@@ -86,6 +86,22 @@ textarea.bio {
   border-left: 5px solid $menu-item;
   background: $menu;
   padding: 3px 10px;
+}
+
+.follow-flag {
+  padding: 10px;
+  background: $menu;
+  & .fas {
+    color: $notice;
+  }
+}
+
+.mutuals-flag {
+  padding: 10px;
+  background: $menu;
+  & .fas {
+    color: #ebdc3b;
+  }
 }
 
 .follow-container {

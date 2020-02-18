@@ -5,11 +5,13 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-      <%= f.text_field :username, autofocus: true, placeholder: "username" %><br>
+      <span class="red">* </span>
+      <%= f.text_field :username, autofocus: true, placeholder: "username" %> <br>
       <%= f.text_field :tagline, placeholder: "tagline" %><br>
-      <%= f.label "optional, tell us a bit about yourself." %>
       <%= f.text_area :bio, placeholder: "a little about you", class: "bio" %><br>
+      <span class="red">* </span>
       <%= f.password_field :password, autocomplete: "new-password", placeholder: "password" %><br>
+      <span class="red">* </span>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "confirm password"%>
 
       <div><%= f.submit "Sign up", class: "button" %></div><br><br>

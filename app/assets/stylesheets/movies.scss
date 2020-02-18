@@ -4,7 +4,7 @@
   position: sticky;
   top: 0;
   z-index: 2;
-  background: $menu-item;
+  background: $hover;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -27,8 +27,6 @@
   align-items: center;
   flex-direction: column;
   width: 820px;
-  max-height: 620px;
-  overflow: auto;
 }
 
 .result-cards {
@@ -116,10 +114,11 @@ label.result-cards:hover::before,
 }
 
 .genre {
-  background: $menu-item;
+  border-bottom:1px solid $menu-item;
   padding: 5px;
-  border-radius: 5px;
-  color: $text-accent;
+  color: $text;
+  margin: 2px 0;
+  display: inline-block;
 }
 
 .poster-link img:hover {
@@ -129,8 +128,7 @@ label.result-cards:hover::before,
 
 .col-right {
   max-height: calc(100vh - 100px);
-  width: 50vw;
-  max-width: 800px;
+  width: 800px;
   overflow: auto;
   display: flex;
   flex-direction: column;

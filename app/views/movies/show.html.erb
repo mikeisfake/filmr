@@ -13,12 +13,19 @@
     </div>
   </section>
 
+  <% if @movie.reviews.present? %>
   <section class="column col-right">
-    <% if @movie.reviews.present? %><h3>reviews:</h3><br><% end %>
+    <h3>reviews:</h3><br>
     <% @movie.reviews.last(5).each do |review| %>
-    <span><%= link_to review.user.username, user_path(review.user), class: "username" %></span>
-    <%= link_to review.render_content, review_path(review), class: "review"%>
+    <div class="review">
+      <%= link_to review_path(review) do %>
+        <span class="more-button"><i class="fas fa-ellipsis-h"></i></span>
+      <% end %>
+      <span><%= link_to review.user.username, user_path(review.user), class: "username" %></span><br>
+      <%= review.render_content %>
+    </div>
     <% end %>
   </section>
+  <% end %>
 
 </section>

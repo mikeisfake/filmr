@@ -19,6 +19,7 @@ class Review < ApplicationRecord
 
   def tag_name=(names)
     tags = names.split(',').map do |n|
+      n = n.strip 
       Tag.find_or_create_by(name: n)
     end
     self.tags << (self.tags + tags)

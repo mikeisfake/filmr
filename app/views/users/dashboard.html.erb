@@ -1,6 +1,6 @@
 <section class="dashboard">
 <h2>reviews from people you follow.</h2>
-<%if @following.empty? %> <h3>you're not following anybody yet.</h3> <% end %>
+<%if @following.empty? %> <h3 class="accent">you're not following anybody yet.</h3> <% end %>
 
 <div class="dash-review-container">
   <% all_follow_reviews(@following, 25).each do |review|%>

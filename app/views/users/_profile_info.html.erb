@@ -1,0 +1,24 @@
+<div class="profile-info">
+<h1 class="username"> <%= @user.username %></h1>
+
+<% if mutuals?(@user) %>
+  <span class="mutuals-flag"><i class="fas fa-star"></i></span>
+<% elsif @user.following? current_user %>
+  <span class="follow-flag"><i class="fas fa-check-square"></i></span>
+<% end %>
+<%= link_to "followers: #{@user.followers_count}", followers_user_path, class: "button" %>
+<%= link_to "following: #{@user.follow_count}", following_user_path, class: "button" %>
+
+<br><br>
+<% if @user.tagline %>
+  <p class="tagline"><%= @user.tagline %></p><br><br>
+<% end %>
+
+<%= link_to user_reviews_path(@user), class: "button" do %>
+  <i class="fas fa-pen-square"></i>
+  <span><%= @user.reviews.count %> reviews</span>
+<% end %><br><br>
+
+<p><%= @user.render_bio if @user.bio %></p><br>
+<div><%= render 'follow_button' %></div>
+</div><br>

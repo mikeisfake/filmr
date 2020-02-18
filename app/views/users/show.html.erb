@@ -1,20 +1,9 @@
 <div class="profile-container">
-  <div class="profile-info">
-    <h1 class="username"> <%= @user.username %></h1>
-    <%= link_to "followers: #{@user.followers_count}", followers_user_path, class: "button" %> |
-    <%= link_to "following: #{@user.follow_count}", following_user_path, class: "button" %>
 
-    <br><br>
-    <% if @user.tagline %>
-      <p class="tagline"><%= @user.tagline %></p><br><br>
-    <% end %>
-    <p><%= @user.render_bio if @user.bio %></p><br>
-    <div><%= render 'follow_button' %></div>
-  </div><br>
+<%= render 'profile_info' %>
 
-  <% if @user.reviews.present? %>
-    <%= render "recent_reviews" %>
-    <br><br>
-  <% end %>
+<% if @user.reviews.present? %>
+  <%= render "recent_reviews" %>
+<% end %>
 
 </div>
