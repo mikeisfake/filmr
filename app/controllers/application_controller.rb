@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action do
+    set_movie_list(params[:search])
+  end
 
   def set_movie_list(string)
     result = HTTParty.get("http://www.omdbapi.com/?s=#{string}&apikey=2cedcff3&")

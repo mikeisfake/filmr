@@ -2,9 +2,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
   before_action :set_follows
-  before_action only: [:show, :dashboard] do
-    set_movie_list(params[:search])
-  end
 
   def show
     @movies = Movie.user_movies(@user)

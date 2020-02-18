@@ -1,8 +1,5 @@
 class MoviesController < ApplicationController
   before_action :authenticate_user!
-  before_action only: [:index, :show] do
-    set_movie_list(params[:search])
-  end
 
   def index
     @movies = Movie.user_movies(current_user)
