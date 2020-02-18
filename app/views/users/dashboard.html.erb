@@ -1,4 +1,16 @@
 <section class="dashboard">
+
+<% if @popular.present? %>
+  <h2>popular this week.</h2>
+  <div class="movie-list row">
+    <% @popular.reverse.first(5).each do |movie| %>
+      <div class="result-cards">
+        <%= link_to image_tag(movie.poster), movie_path(movie), data_value: movie.titleyear %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
 <h2>reviews from people you follow.</h2>
 <%if @following.empty? %> <h3 class="accent">you're not following anybody yet.</h3> <% end %>
 

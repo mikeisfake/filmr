@@ -27,12 +27,8 @@ class Movie < ApplicationRecord
     self.reviews.count
   end
 
-  def self.is_reviewed?
-    joins(:reviews).group(:movie_id).having("COUNT(reviews.movie_id) > 0")
-  end
-
   def self.popular_this_week
-    order(created_at: :desc).where(created_at: (Time.now.midnight - 1.week)..Time.now.midnight).order(:review_count)
+    joins(:reviews).order(created_at: :desc).where(created_at: (Time.now.midnight - 1.week)..Time.now.midnight).group(:movie_id).having("COUNT(reviews.movie_id) > 1").order(:review_count)
   end
 
 end

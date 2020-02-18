@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def dashboard
+    @popular = Movie.popular_this_week
   end
 
 

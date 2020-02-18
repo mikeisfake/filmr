@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
           imdbid: m['imdbID']
         )
       end
+    elsif result['Error'] == "Movie not found!"
+      flash[:alert] = "no results"
     end
   end
 
