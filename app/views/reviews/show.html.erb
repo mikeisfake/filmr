@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <div class="column col-right">
+  <div class="column dash-review-container">
     <h3>review by: </h3>
     <span><%= link_to @review.user.username, user_path(@review.user), class: "username" %></span><br>
     <p class="review review-show"><%= @review.render_content %></p>

@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable,
          :omniauthable, omniauth_providers: %i[github], authentication_keys: %i[username]
 
+  has_many :reviews, dependent: :destroy
+  has_many :movies, through: :reviews
+
   validates :username, uniqueness: true
   validates :username, presence: true
   validates :password, presence: true, on: :create
@@ -12,8 +15,7 @@ class User < ApplicationRecord
   validates :bio, length: {maximum: 500}
   validates :tagline, length: {maximum: 30}
 
-  has_many :reviews, dependent: :destroy
-  has_many :movies, through: :reviews
+  validates_uniqueness_of :user_id, scope: :movies
 
   acts_as_follower
   acts_as_followable
