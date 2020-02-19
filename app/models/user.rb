@@ -14,7 +14,6 @@ class User < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
   has_many :movies, through: :reviews
-  has_one :watchlist
 
   acts_as_follower
   acts_as_followable

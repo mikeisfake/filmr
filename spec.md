@@ -3,9 +3,17 @@
 Specs:
 - [x] Using Ruby on Rails for the project
 - [x] Include at least one has_many relationship (x has_many y; e.g. User has_many Recipes)
-## `Movie` has_many `Reviews`
-- [ ] Include at least one belongs_to relationship (x belongs_to y; e.g. Post belongs_to User)
-- [ ] Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
+1. `movie` has_many `reviews`
+2. `user` has_many `reviews`
+- [x] Include at least one belongs_to relationship (x belongs_to y; e.g. Post belongs_to User)
+1. `review` belongs_to `movie` & `user`
+- [x] Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
+1. `tag` has_many `reviews` through `review_tags`
+2. `review` has_many `tags` through `review_tags`
+3. `user` has_many `movies` through `reviews`
+4. `movie` has_many `users` through `reviews`
+5. `movie` has_many `tags` through `reviews`
+5. `tag` has_many `movies` through `reviews`
 - [ ] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
 - [ ] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
 - [ ] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
