@@ -87,9 +87,22 @@ label.result-cards:hover::before,
   align-items: flex-end;
   justify-content: center;
   text-align: right;
+}
+
+.movie-data {
+  position: fixed;
+  height: auto;
+  width: 300px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px dashed $accent;
   & img {
     width: 300px;
     height: 440px;
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: $shadow;
+    }
   }
   & h2 {
     text-align: right;
@@ -103,13 +116,6 @@ label.result-cards:hover::before,
   }
 }
 
-.movie-data {
-  height: auto;
-  padding: 20px;
-  border-radius: 5px;
-  border: 1px dashed $accent;
-}
-
 .genre {
   border-bottom:1px solid $menu-item;
   padding: 5px;
@@ -118,10 +124,7 @@ label.result-cards:hover::before,
   display: inline-block;
 }
 
-.poster-link img:hover {
-  transform: scale(1.05);
-  box-shadow: $shadow;
-}
+.poster-link img
 
 .col-right {
   max-height: calc(100vh - 100px);

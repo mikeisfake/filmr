@@ -9,7 +9,14 @@ class ApplicationController < ActionController::Base
     @movie_list = []
     if !result['Error'] && !result.nil?
       @movie_list = result['Search'].compact.map do |m|
-        poster = (m['Poster'] == 'N/A' ? 'https://66.media.tumblr.com/5a186c216ce45dbc68730be8ced57a06/29fe15eaade870e6-a7/s400x600/1c5884a55da0a8d151061ab122fbd715e201f7b9.png' : m['Poster'])
+
+        if m['Poster'] == 'N/A'
+        poster =  '../app/assets/no-poster.png'
+        else
+        poster =  m['Poster']
+        end
+
+        # m['Poster'] == 'N/A' ? '../app/assets/images/no-poster.png' : m['Poster']
         Movie.new(
           title: m['Title'],
           year: m['Year'],

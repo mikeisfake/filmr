@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
     if review.save
       redirect_to review_path(review), notice: "what a witty review #{current_user.username}"
     else
-      redirect_to new_movie_review_path(movie), alert: "that didn't work out"
+      redirect_to new_movie_review_path(movie), alert: "you've gotta say something"
     end
   end
 

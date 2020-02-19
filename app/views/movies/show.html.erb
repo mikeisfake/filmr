@@ -14,9 +14,9 @@
   </section>
 
   <% if @movie.reviews.present? %>
-  <section class="column col-right">
+  <section class="column dash-review-container">
     <h3>reviews:</h3><br>
-    <% @movie.reviews.last(5).each do |review| %>
+    <% @movie.reviews.each do |review| %>
     <div class="review">
       <%= link_to review_path(review) do %>
         <span class="more-button"><i class="fas fa-ellipsis-h"></i></span>
