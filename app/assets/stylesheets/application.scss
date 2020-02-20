@@ -17,7 +17,7 @@
  *= require animate
  */
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat|PT+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat|PT+Mono|Rammetto+One&display=swap');
 
 @import "variables";
 
@@ -48,7 +48,7 @@ body {
  background-size: $dot-space $dot-space;
  color: $text;
  font-family: $monospace;
- font-size: 12px;
+ font-size: 14px;
  line-height: 1.7;
  overflow: auto;
  margin: 0 auto;
@@ -125,7 +125,6 @@ a:hover {
  display: flex;
  flex-direction: row;
  flex-wrap: wrap;
-
 }
 
 a.delete-button:hover {
@@ -142,5 +141,13 @@ a.delete-button:hover {
   cursor: pointer;
   position: absolute;
   bottom: 10px;
-  right: 10px;
+  right: 20px;
+}
+
+.welcome-title {
+  font-size: 10em;
+  font-family: $title;
+  & span {
+    font-family: $title;
+  }
 }
