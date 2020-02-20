@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: :show, path: 'profile' do
     resources :reviews, only: [:index]
+    resources :movies, only: [:index]
     member do
       get :follow
       get :unfollow

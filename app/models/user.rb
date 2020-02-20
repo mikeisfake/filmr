@@ -15,8 +15,6 @@ class User < ApplicationRecord
   validates :bio, length: {maximum: 500}
   validates :tagline, length: {maximum: 30}
 
-  validates_uniqueness_of :user_id, scope: :movies
-
   acts_as_follower
   acts_as_followable
 
@@ -24,7 +22,6 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
     user.username = auth.info.nickname
     user.password = Devise.friendly_token[0, 20]
-    #user.image = auth.info.image
     end
   end
 

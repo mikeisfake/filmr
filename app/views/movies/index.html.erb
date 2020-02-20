@@ -1,6 +1,6 @@
-<h2>all movies you've watched.</h2>
+<h2>all movies <%= @user.username %> has watched.</h2>
 <div class="movie-list row">
-  <% @movies.reverse.each do |movie| %>
+  <% @movies.reverse.uniq.each do |movie| %>
     <div class="result-cards">
       <%= link_to image_tag(movie.poster), movie_path(movie), data_value: movie.titleyear %>
     </div>
