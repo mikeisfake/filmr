@@ -1,9 +1,9 @@
 
-  <h2><%= @movie.titleyear %></h2><br>
-  <%= link_to image_tag(@movie.poster), movie_path(@movie) %>
-  <h3><%= @movie.director %></h3><br>
-  <% @movie.genres.each do |genre| %>
+  <h2><%= movie.titleyear %></h2><br>
+  <%= link_to image_tag(movie.poster), movie_path(movie) %>
+  <h3><%= movie.director %></h3><br>
+  <% movie.genres.each do |genre| %>
     <span class="genre"><%= genre.downcase %></span>
   <% end %>
   <hr><br>
-  <p><%= @movie.plot %></p>
+  <p><%= movie.plot %></p>

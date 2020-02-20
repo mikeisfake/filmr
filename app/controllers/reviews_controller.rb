@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:show, :edit, :update, :destroy]
-  before_action :set_movie, only: [:show, :edit]
   before_action :authenticate_user!
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
 
   def index
     @user = User.find_by(id: params[:user_id])
@@ -39,7 +38,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to root_path, alert: "your review of #{@review.movie.title} is gonve forever."
+    redirect_to user_path(current_user), alert: "your review of #{@review.movie.title} is gonve forever."
   end
 
   private
@@ -48,9 +47,6 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
-  def set_movie
-    @movie = @review.movie
-  end
 
   def review_params
     params.require(:review).permit(:content, :date, :tag_name, :movie_id, :user_id)

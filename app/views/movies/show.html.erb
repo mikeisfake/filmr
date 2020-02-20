@@ -1,7 +1,7 @@
 <section class="row">
   <section class="column col-left">
     <div class="movie-data">
-    <%= render 'movie_data' %>
+    <%= render partial: 'movie_data', locals: {movie: @movie} %>
     <br>
     <div class="row">
       <%= button_to new_movie_review_path(@movie), method: :get, class: "button success-button" do %>

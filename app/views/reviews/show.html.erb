@@ -1,7 +1,8 @@
 <section class="row">
   <div class="column col-left">
   <div class="movie-data">
-    <%= render 'movie_data' %><br>
+    <%= render partial: 'movie_data', locals: {movie: @review.movie} %>
+    <br>
     <div class="row">
       <% if @review.owns? current_user %>
         <%= button_to review_path(@review), method: :delete, class: "button delete-button" do %>

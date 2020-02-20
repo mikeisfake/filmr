@@ -138,3 +138,9 @@ a.delete-button:hover {
 .success-button:hover {
   background: $notice;
 }
+.close-button {
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}

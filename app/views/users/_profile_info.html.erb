@@ -20,8 +20,8 @@
 <% end %>
 
 <%= link_to user_movies_path(@user), class: "button" do %>
-<i class="fas fa-pen-square"></i>
-<span><%= @user.movies.uniq.count %> movies</span>
+  <i class="fas fa-video"></i>
+  <span><%= @user.movies.uniq.count %> movies</span>
 <% end %>
 
 <br><br>

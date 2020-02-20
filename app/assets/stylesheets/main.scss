@@ -44,11 +44,12 @@ input[type='password'] {
 
 textarea {
   width: 800px;
-	height: calc(100vh - 500px);
+	height: 500px;
   padding: 5px;
   resize: none;
   letter-spacing: 1px;
   line-height: 2;
+  font-size: 1.05em;
 }
 
 input[type="radio"] {

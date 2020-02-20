@@ -10,6 +10,12 @@
   height: 100%;
   width: 800px;
   padding: 10px;
+  margin-bottom: 100px;
+  &.edit-form {
+    justify-content: center;
+    height: calc(100vh - 100px);
+    margin-bottom: 0px;
+  }
 }
 
 .dash-image {

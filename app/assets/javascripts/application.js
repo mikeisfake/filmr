@@ -15,3 +15,20 @@
 //= require_tree .
 //= require jquery
 //= require jquery-ui
+
+$('input[type=radio]').click(function() {
+  $("#movie-list").submit();
+});
+
+$(".flash").addClass("animated slideInLeft").delay(3000).queue(function () {
+  $(this).addClass("slideOutLeft").dequeue();
+});
+
+$( "#btn, #blocker" ).click(function() {
+  $( "#menu, #blocker, .container-all" ).toggleClass( "open", 250, "easeOutCirc" );
+  $( "#btn" ).toggleClass( "active");
+});
+
+$(".close-button").click(function() {
+  $(".search-container").remove();
+});

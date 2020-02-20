@@ -1,11 +1,11 @@
 <section class="row">
   <section class="column col-left">
     <div class="movie-data">
-      <%= render 'movie_data' %>
+      <%= render partial: 'movie_data', locals: {movie: @review.movie} %>
     </div>
   </section>
 
-  <div class="column dash-review-container">
+  <div class="column dash-review-container edit-form">
     <h2>edit your review.</h2>
     <%= form_with model: @review do |f| %>
       <%= f.text_area :content %>
