@@ -14,12 +14,12 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    movie = Movie.find_by(id: params[:review][:movie_id])
-    review = Review.new(review_params)
-    if review.save
-      redirect_to review_path(review), notice: "what a witty review #{current_user.username}"
+    @movie = Movie.find_by(id: params[:review][:movie_id])
+    @review = Review.new(review_params)
+    if @review.save
+      redirect_to review_path(@review), notice: "what a witty review #{current_user.username}"
     else
-      redirect_to new_movie_review_path(movie), alert: "you've gotta say something"
+      render :new
     end
   end
 

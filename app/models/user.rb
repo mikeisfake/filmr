@@ -36,7 +36,11 @@ class User < ApplicationRecord
     self.bio.gsub("\r\n\r", '<br>').gsub("\r\n", '<br>').gsub("\n", '<br>').html_safe
   end
 
-
-
+  def new_from_following
+    self.all_following.map do |friend|
+      friend_movies = []
+      friend_movies << friend.movies.map {|movie| movie}.sort_by {|m| m.created_at}
+    end.reject { |e| e.empty?}.flatten.uniq
+  end
 
 end

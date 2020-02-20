@@ -6,18 +6,27 @@
   </div>
 
   <div class="column col-right">
-    <%= form_with model: @review do |f| %>
+
+    <%= form_with model: @review, local: true do |f| %>
+
+    <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h3>
+        <%= pluralize(@review.errors.count, "error") %>
+        prohibited this review from being saved:
+      </h3>
+        <% @review.errors.full_messages.each do |msg| %>
+        <p class="red"><%= msg %></p>
+        <% end %>
+    </div>
+    <% end %>
+
       <%= f.hidden_field :movie_id %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :date, value: Time.now %>
       <%= f.text_area :content, placeholder: "write a review" %><br>
 
-      <%= f.text_field :tag_name, list: "tags_autocomplete", placeholder: "comma separated tags" %>
-      <datalist id="tag_autocomplete">
-        <% Tag.all.each do |tag| %>
-          <option value="<%= tag.name %>">
-        <% end %>
-      </datalist>
+      <%= f.text_field :tag_name, placeholder: "comma separated tags" %>
 
       <%= button_tag type: 'submit', class: "button" do %>
         <%= fa_icon "chevron-right" %>

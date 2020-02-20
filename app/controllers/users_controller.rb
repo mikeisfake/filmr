@@ -13,8 +13,15 @@ class UsersController < ApplicationController
 
 
   def follow
-    current_user.follow(@user)
-    redirect_to user_path(@user), notice: "now following #{@user.username}"
+    if @user == current_user
+      flash[:alert] = "you're great and all but you can't follow yourself"
+    elsif @user.all_following.include?(current_user)
+      flash[:alert] = "you're already following this #{@user.username}"
+    else
+      current_user.follow(@user)
+      flash[:notice] = "now following #{@user.username}"
+    end
+    redirect_to user_path(@user)
   end
 
   def unfollow

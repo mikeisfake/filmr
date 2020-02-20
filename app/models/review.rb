@@ -5,6 +5,7 @@ class Review < ApplicationRecord
   has_many :tags, through: :review_tags
 
   validates :content, presence: true
+  validates :content, length: { minimum: 5 }
   validates :movie, presence: true
 
   accepts_nested_attributes_for :tags
