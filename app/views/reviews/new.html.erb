@@ -1,7 +1,7 @@
 <section class="row">
   <div class="column col-left">
     <div class="movie-data">
-      <%= render 'movie_data' %>
+      <%= render partial: 'movie_data', locals: {movie: @movie} %>
     </div>
   </div>
 

@@ -2,6 +2,12 @@
 
 <%= render 'profile_info' %>
 
+<% if current_user.watchlist %>
+<% current_user.watchlist.movies.each do |movie| %>
+  <p><%= movie.titleyear %></p>
+<% end %>
+<% end %>
+
 <% if @user.reviews.present? %>
   <%= render "recent_reviews" %>
 <% end %>
