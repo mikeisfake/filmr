@@ -63,11 +63,13 @@ class ApplicationController < ActionController::Base
       @watchlist.movies << @movie
       if @watchlist.save
         flash[:notice] = "movie added to watchlist"
-        redirect_to movie_path(@movie)
+        return redirect_to movie_path(@movie)
       end
     elsif !current_user.watchlist.movies.include?(@movie)
       current_user.watchlist.movies << @movie
       flash[:notice] = "movie added to watchlist"
+      return redirect_to movie_path(@movie)
+    else
       redirect_to movie_path(@movie)
     end
   end
