@@ -19,7 +19,7 @@
   <span><%= @user.reviews.count %> reviews</span>
 <% end %>
 
-<%= link_to user_movies_path(@user), class: "button" do %>
+<%= link_to user_watchlists_path(@user), class: "button" do %>
   <i class="fas fa-video"></i>
   <span><%= @user.movies.uniq.count %> movies</span>
 <% end %>

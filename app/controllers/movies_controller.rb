@@ -2,13 +2,7 @@ class MoviesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    if params[:user_id]
-      @user = User.find(params[:user_id])
-      @movies = Movie.user_movies(@user)
-    else
-      @user = current_user
-      @movies = Movie.user_movies(@user)
-    end
+
   end
 
   def show

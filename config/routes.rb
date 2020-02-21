@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: :show, path: 'profile' do
     resources :reviews, only: [:index]
-    resources :movies, only: [:index]
+    resources :watchlists, only: [:index]
     member do
       get :follow
       get :unfollow
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :reviews, except: [:new, :index]
   resources :tags, only: [:show]
-  resources :watchlists, only: [:create, :update]
+  resources :watchlists, only: [:create, :update, :index]
 
   get '/search', to: 'movies#new'
   get '/dashboard', to: 'users#dashboard'

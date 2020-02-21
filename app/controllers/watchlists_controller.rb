@@ -1,5 +1,15 @@
 class WatchlistsController < ApplicationController
 
+  def index
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @movies = @user.watchlist.movies
+    else
+      @user = current_user
+      @movies = @user.watchlist.movies 
+    end
+  end
+
   def create
     @movie = Movie.find(params[:movie_id])
     update_or_create_watchlist
