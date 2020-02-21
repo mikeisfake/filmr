@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_17_050428) do
+ActiveRecord::Schema.define(version: 2020_02_20_235824) do
 
   create_table "follows", force: :cascade do |t|
     t.string "followable_type", null: false
@@ -80,11 +80,11 @@ ActiveRecord::Schema.define(version: 2020_02_17_050428) do
     t.string "uid"
     t.text "bio"
     t.string "tagline"
+    t.integer "watchlist_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "watchlists", force: :cascade do |t|
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
