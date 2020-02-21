@@ -1,4 +1,4 @@
-<% if @user.watchlist.movies.present? %>
+<% if @user.watchlist && @user.watchlist.movies.present? %>
   <h2>Movies in <%= @user.username %>'s watchlist.</h2>
   <div class="movie-list row">
     <% @user.watchlist.movies.sample(5).each do |movie| %>

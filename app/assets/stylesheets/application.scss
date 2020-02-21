@@ -137,6 +137,11 @@ a.delete-button:hover {
 .success-button:hover {
   background: $notice;
 }
+
+.data-button:hover {
+  background: $alt-accent;
+}
+
 .close-button {
   cursor: pointer;
   position: absolute;

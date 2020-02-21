@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
     @movie = Movie.find_by(id: params[:review][:movie_id])
     @review = Review.new(review_params)
     if @review.save
-      redirect_to review_path(@review), notice: "what a witty review #{current_user.username}"
+      update_or_create_watchlist
     else
       render :new
     end
