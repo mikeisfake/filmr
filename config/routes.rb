@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :reviews, except: [:new, :index]
   resources :tags, only: [:show]
+  resources :watchlists, only: :create
 
   get '/search', to: 'movies#new'
   get '/dashboard', to: 'users#dashboard'

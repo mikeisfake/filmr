@@ -1,0 +1,5 @@
+<%= form_with model: @watchlist, url: watchlists_path do |f| %>
+  <%= f.hidden_field :movie_id, value: @movie.id %>
+
+  <%= f.submit class: "button" %>
+<% end %>
