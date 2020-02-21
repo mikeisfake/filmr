@@ -1,12 +1,7 @@
 <div class="profile-container">
 
 <%= render 'profile_info' %>
-
-<% if current_user.watchlist %>
-<% current_user.watchlist.movies.each do |movie| %>
-  <p><%= movie.titleyear %></p>
-<% end %>
-<% end %>
+<%= render 'watchlist' %>
 
 <% if @user.reviews.present? %>
   <%= render "recent_reviews" %>

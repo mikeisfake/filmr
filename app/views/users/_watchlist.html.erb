@@ -1,0 +1,10 @@
+<% if @user.watchlist %>
+  <h2>Movies in <%= @user.username %>'s watchlist.</h2>
+  <div class="movie-list row">
+    <% current_user.watchlist.movies.sample(5).each do |movie| %>
+      <div class="result-cards">
+        <%= link_to image_tag(movie.poster), movie_path(movie), data_value: movie.titleyear %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
