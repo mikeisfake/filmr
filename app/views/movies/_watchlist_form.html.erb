@@ -1,5 +1,8 @@
 <%= form_with model: @watchlist, url: watchlists_path do |f| %>
   <%= f.hidden_field :movie_id, value: @movie.id %>
 
-  <%= f.submit class: "button" %>
+  <%= button_tag :submit , class: "button" do %>
+    <i class="fas fa-eye"></i>
+    <span>watchlist</span>
+  <% end %>
 <% end %>

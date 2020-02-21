@@ -8,12 +8,12 @@ class WatchlistsController < ApplicationController
       current_user.watchlist = @watchlist
       @watchlist.movies << @movie
       if @watchlist.save
-        redirect_to user_path(current_user)
+        redirect_to movie_path(@movie)
       end
     else
       if !current_user.watchlist.movies.include?(@movie)
         current_user.watchlist.movies << @movie
-        redirect_to root_path
+        redirect_to movie_path(@movie)
       end
     end
   end
