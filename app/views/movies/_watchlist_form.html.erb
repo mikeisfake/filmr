@@ -1,8 +1,24 @@
-<%= form_with model: @watchlist, url: watchlists_path do |f| %>
-  <%= f.hidden_field :movie_id, value: @movie.id %>
+<% if !current_user.watchlist.movies.include?(@movie) %>
 
-  <%= button_tag :submit , class: "button" do %>
-    <i class="fas fa-eye"></i>
-    <span>watchlist</span>
+  <%= form_with model: @watchlist, url: watchlists_path do |f| %>
+    <%= f.hidden_field :movie_id, value: @movie.id %>
+
+    <%= button_tag :submit , class: "button" do %>
+      <i class="fas fa-eye"></i>
+      <span>watchlist</span>
+    <% end %>
   <% end %>
+
+<% else %>
+
+<%= form_with model: @watchlist, url: watchlist_path(current_user.watchlist), method: :patch do |f| %>
+  <%= f.hidden_field :movie_id, value: @movie.id %>
+  <%= f.hidden_field :watchlist_id, value: current_user.watchlist.id %>
+
+  <%= button_tag :submit , class: "button delete-button" do %>
+    <i class="fas fa-eye"></i>
+    <span>remove</span>
+  <% end %>
+<% end %>
+
 <% end %>
