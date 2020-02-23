@@ -9,7 +9,7 @@
     <h2>edit your review.</h2>
     <%= form_with model: @review do |f| %>
       <%= f.text_area :content %>
-      <%= f.text_field :tag_name, value:'' %>
+      <%= f.text_field :tag_name %>
 
       <%= f.submit class: "button" %>
     <% end %>

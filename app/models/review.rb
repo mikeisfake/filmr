@@ -23,7 +23,7 @@ class Review < ApplicationRecord
       n = n.strip
       Tag.find_or_create_by(name: n)
     end
-    self.tags << (tags)
+    self.tags = tags
   end
 
   def tag_name

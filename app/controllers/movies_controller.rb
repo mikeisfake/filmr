@@ -2,7 +2,6 @@ class MoviesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-
   end
 
   def show
@@ -16,9 +15,4 @@ class MoviesController < ApplicationController
     find_or_create_movie params[:imdbid] if params[:imdbid]
   end
 
-  private
-
-  def movie_params
-    params.require(:movie).permit(:title, :year, :genre, :director, :poster, :plot, :reviews_attributes)
-  end
 end

@@ -42,10 +42,6 @@ class ApplicationController < ActionController::Base
       redirect_to @movie
     elsif set_movie(query).save
       redirect_to @movie
-    else
-      flash[:notice] = "invalid entry"
-      @movies = Movie.all
-      render :index
     end
   end
 

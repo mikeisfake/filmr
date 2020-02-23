@@ -31,13 +31,14 @@ Specs:
 - [x] Include login
 - [x] Include logout
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth)
- ^ used devise gem.
+ ^ used devise gem and github omniauth.
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
 [shows a users reviews](http://localhost:3000/profile/8/reviews)
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
 [create a new review of a movie](http://localhost:3000/movies/155/reviews/new?)
 - [x] Include form display of validation errors (form URL e.g. /recipes/new)
 1.  devise form validation
+2.  new review form validation
 
 Confirm:
 - [x] The application is pretty DRY

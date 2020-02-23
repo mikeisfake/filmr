@@ -15,8 +15,8 @@ class UsersController < ApplicationController
   def follow
     if @user == current_user
       flash[:alert] = "you're great and all but you can't follow yourself"
-    # elsif @user.all_following.include?(current_user)
-    #   flash[:alert] = "you're already following #{@user.username}"
+    elsif @user.followed_by?(current_user)
+      flash[:alert] = "you're already following #{@user.username}"
     else
       current_user.follow(@user)
       flash[:notice] = "now following #{@user.username}"
