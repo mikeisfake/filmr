@@ -116,6 +116,12 @@ label.result-cards:hover::before,
   }
 }
 
+@media only screen and (max-width: 1300px) {
+  .movie-data {
+    position: relative;
+  }
+}
+
 .genre {
   border-bottom:1px solid $menu-item;
   padding: 5px;

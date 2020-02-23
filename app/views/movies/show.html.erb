@@ -5,10 +5,9 @@
     <br>
     <div class="row">
       <%= button_to new_movie_review_path(@movie), method: :get, class: "button success-button" do %>
-        <i class="far fa-sticky-note"></i>&nbsp
-        <span>review</span>
+        <i class="fas fa-pen-square"></i>
       <% end %>
-      
+
       <%= render 'watchlist_form' %>
       <%= render "home_button" %>
     </div>

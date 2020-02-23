@@ -5,7 +5,6 @@
 
     <%= button_tag :submit , class: "button data-button" do %>
       <i class="fas fa-eye"></i>
-      <span>watchlist</span>
     <% end %>
   <% end %>
 
@@ -16,8 +15,7 @@
   <%= f.hidden_field :watchlist_id, value: current_user.watchlist.id %>
 
   <%= button_tag :submit , class: "button delete-button" do %>
-    <i class="fas fa-eye"></i>
-    <span>remove</span>
+    <i class="fas fa-eye-slash"></i>
   <% end %>
 <% end %>
 
