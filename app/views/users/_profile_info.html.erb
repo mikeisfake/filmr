@@ -14,14 +14,18 @@
   <p class="tagline"><%= @user.tagline %></p><br><br>
 <% end %>
 
-<%= link_to user_reviews_path(@user), class: "button" do %>
-  <i class="fas fa-pen-square"></i>
-  <span><%= @user.reviews.count %> reviews</span>
+<% if @user.reviews %>
+  <%= link_to user_reviews_path(@user), class: "button" do %>
+    <i class="fas fa-pen-square"></i>
+    <span><%= pluralize(@user.reviews.count, 'review') %></span>
+  <% end %>
 <% end %>
 
-<%= link_to user_watchlists_path(@user), class: "button" do %>
-  <i class="fas fa-video"></i>
-  <span><%= @user.movies.uniq.count %> movies</span>
+<% if @user.watchlist %>
+  <%= link_to user_watchlists_path(@user), class: "button" do %>
+    <i class="fas fa-video"></i>
+    <span><%= pluralize(@user.watchlist.movies.count, 'movie') %> </span>
+  <% end %>
 <% end %>
 
 <br><br>

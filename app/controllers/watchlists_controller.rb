@@ -4,9 +4,12 @@ class WatchlistsController < ApplicationController
     if params[:user_id]
       @user = User.find(params[:user_id])
       @movies = @user.watchlist.movies
+    elsif current_user.watchlist
+      @user = current_user
+      @movies = @user.watchlist.movies
     else
       @user = current_user
-      @movies = @user.watchlist.movies 
+      @movies = Movie.all 
     end
   end
 

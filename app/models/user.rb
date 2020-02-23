@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
   has_many :movies, through: :reviews
-  belongs_to :watchlist 
+  belongs_to :watchlist, optional: true 
 
   validates :username, uniqueness: true
   validates :username, presence: true
