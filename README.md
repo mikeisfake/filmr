@@ -1,24 +1,18 @@
-# README
+# FILMr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+FILMr is an app that lets users create accounts, search for movies, add those movies to their watchlists or write reviews of them, as well as see what other film fans are saying, and following them.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-* System dependencies
+Clone down this repository and run `bundle install`, then start up a rails server and you're all set.
 
-* Configuration
 
-* Database creation
+## Built With
 
-* Database initialization
+* [Rails 5.2](https://rubyonrails.org/) - The web framework used
 
-* How to run the test suite
+## License
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This project is licensed under the MIT License
